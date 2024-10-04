@@ -24,4 +24,4 @@ gradle-wrapper.properties
 local.properties
 .DS_Store
 
-
+/api_secrets.properties

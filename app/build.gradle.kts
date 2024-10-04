@@ -51,9 +51,16 @@ android {
 }
 
 dependencies {
+
+    // Define App Center SDK Version
+    val appCenterSdkVersion = "5.0.4"
+
+    // App Center Dependencies
+    implementation("com.microsoft.appcenter:appcenter-analytics:$appCenterSdkVersion")
+    implementation("com.microsoft.appcenter:appcenter-crashes:$appCenterSdkVersion")
+
     // Firebase BoM for consistent versions of Firebase libraries
     implementation(platform(libs.firebase.bom))
-
 
     // Firebase Authentication
     implementation(libs.google.firebase.auth)
@@ -89,7 +96,4 @@ dependencies {
     // Debug dependencies
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-
-
 }
