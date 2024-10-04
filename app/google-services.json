@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "270508702954",
+    "project_id": "fit-earn-a114b",
+    "storage_bucket": "fit-earn-a114b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270508702954:android:64a7e3ebce97333a7f6b93",
+        "android_client_info": {
+          "package_name": "com.example.fitearn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXZ31VPui1mezGzd5cCgZhlu6zEpH-aUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

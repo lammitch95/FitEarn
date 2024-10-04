@@ -1,15 +1,27 @@
+#Ignore Android Studio and Intellij files
 *.iml
 .gradle
-/local.properties
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-.DS_Store
+
+#Ignore gradle wrapper files
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+
+#Ignore compiled build files
 /build
 /captures
 .externalNativeBuild
 .cxx
+
+#Ignore Local Configuration Files
+/local.properties
 local.properties
+.DS_Store
+
+
