@@ -1,5 +1,6 @@
 [versions]
 agp = "8.6.1"
+appCenterSdkVersion = "5.0.4"
 firebaseBomVersion = "33.4.0"   # Use the latest Firebase BOM version
 googleServices = "4.4.2"
 kotlin = "1.9.0"
@@ -21,6 +22,8 @@ navigationCompose = "2.8.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+appcenter-analytics = { module = "com.microsoft.appcenter:appcenter-analytics", version.ref = "appCenterSdkVersion" }
+appcenter-crashes = { module = "com.microsoft.appcenter:appcenter-crashes", version.ref = "appCenterSdkVersion" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBomVersion" }
 #noinspection SimilarGradleDependency
 google-firebase-analytics = { module = "com.google.firebase:firebase-analytics", version.ref = "firebaseAnalytics" }

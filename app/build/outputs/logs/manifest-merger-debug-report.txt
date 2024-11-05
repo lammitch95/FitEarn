@@ -36,21 +36,21 @@ MERGED from [com.google.android.gms:play-services-measurement-base:22.1.2] /User
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/deepamondal/.gradle/caches/transforms-4/17690b2aba4e6b8a4af02ccf5330d961/transformed/play-services-stats-17.0.2/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/deepamondal/.gradle/caches/transforms-4/c702f5b2bed2e909295e881677de1bc1/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:15:1-25:12
 MERGED from [androidx.compose.material3:material3-android:1.3.0] /Users/deepamondal/.gradle/caches/transforms-4/a9ecc7c06352cc7f82134a69b911b8e1/transformed/material3-release/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.compose.material:material-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/afb409dca9075351554f2c3315e0a414/transformed/material-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-ripple-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/423439fe6d3a734227c059b94ff7aed2/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/22c8b0e6e086f52b88233b44b49f81f5/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/29ccdb60a2566271f3708ecd4c8e6eba/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f397bf283db8d7582a9f16678a404cd7/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/53a4649607ab0406d5af23eb1aeed5c8/transformed/animation-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/adc8e1d4a08d4e756b2ae9d79888ef01/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/adade4b7a0de433b75a2b2c513e65bc7/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/12beee61e06bd74f5d5f633965dda95a/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f2dd24b6829cf3e0c159a0b8b7e0eb5f/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/146889a92149aebd3c88cd551c900d28/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/cb7301e1322b1ba81fb10cd4d7d9ba1e/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/5d4e51d37adcde6502afd3f40f17f0bd/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
-MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/75067e59ddd7c2d4e22e789c75fcb715/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/54272ed74f6000f66fe942c62b18c939/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.material:material-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/2b304a3b5b745ef4a44b170948e2b278/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/0a9ab9c02dd5234b632c2dde6033a8f4/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/56605b262b04809d094010668096180c/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/bd35a34862a911e0dbf9036ea6d5d9d1/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/6410a932a6bfdf6d6b275812993d135e/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/6410c36e7dd50a1d0d3d8faa591365a5/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/8b8c3892ff58acade5edec3da0d5db43/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/a919df955e8dd128123d0f1bc8f116eb/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc929dc3d5ac3f5a9f81eb7f16c53c87/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/16ffdd5a120d56296806df57554714a1/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/f66bdbb81f4d52d6b57d974fb7384c4e/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/d0d9d4f1b8b1246327668a4f12c87d40/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc5a7233c5fe60ff74be381d821096e1/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/43414bf7cf5955952af0e581d155cc8f/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cf8c27fc31163d7f45d21ca57ecc70f4/transformed/ui-test-manifest-1.7.3/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/deepamondal/.gradle/caches/transforms-4/f371bff217c97608b29ce0bad5ac5b5e/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.1.0] /Users/deepamondal/.gradle/caches/transforms-4/ebacc55ed962127252c9a0a2ef90862e/transformed/loader-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/deepamondal/.gradle/caches/transforms-4/ba206688d2c9dd836fb578a405f3cb95/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:2:1-7:12
@@ -80,10 +80,10 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6] /Users/deepamonda
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.6] /Users/deepamondal/.gradle/caches/transforms-4/ae42ab6cad1bee9c01653bbc2d910db9/transformed/lifecycle-viewmodel-savedstate-2.8.6/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] /Users/deepamondal/.gradle/caches/transforms-4/c9d390b3adaa681d142a6b6ff6f60dc2/transformed/lifecycle-livedata-core-2.8.6/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] /Users/deepamondal/.gradle/caches/transforms-4/da102f3a71212a38cab27d63a1fcefc7/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-icons-core-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/e51bf1402892fee93cf29dcd9887ad14/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f42a23304ba30d2c331b68bc830f7eec/transformed/ui-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/6550e58141a1d45bae7b0836eb9691d1/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/48be35e48067ea6ee84c74ffb3e5482d/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/154800d472605ffb7a74c5c8371670c8/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/1c31b12a8f11d4a427e0b1ec6fccbd12/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/9277633e6f44ca5ec779476ffc40a1b7/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/499b520dd3c15906d1dbcdef85aab4af/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/deepamondal/.gradle/caches/transforms-4/14036ef0fd2e5ad5ef55ed30781cb8e3/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:15:1-19:12
 MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/deepamondal/.gradle/caches/transforms-4/49987092def7f526f1689047d75ffd63/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:2:1-5:12
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/deepamondal/.gradle/caches/transforms-4/2905c95dffcbc7a024b8fe64d3c5d1fa/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:17:1-25:12
@@ -105,6 +105,9 @@ MERGED from [androidx.tracing:tracing:1.0.0] /Users/deepamondal/.gradle/caches/t
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/deepamondal/.gradle/caches/transforms-4/c52a46199351d62d96ffa390a9fc1bd7/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /Users/deepamondal/.gradle/caches/transforms-4/1c858e39bdcb48fd941fcc28d7d21e84/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/deepamondal/.gradle/caches/transforms-4/d957fac1916697d4100455cbc0ab9051/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.microsoft.appcenter:appcenter-analytics:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/0aee775c5069b1dfd412aa74033813a2/transformed/appcenter-analytics-5.0.4/AndroidManifest.xml:6:1-13:12
+MERGED from [com.microsoft.appcenter:appcenter-crashes:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/050ef681600773e79524f28ef722f59f/transformed/appcenter-crashes-5.0.4/AndroidManifest.xml:6:1-13:12
+MERGED from [com.microsoft.appcenter:appcenter:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/8ba9bf9ffbee935b8d99a58eff0b0b0f/transformed/appcenter-5.0.4/AndroidManifest.xml:6:1-16:12
 	package
 		INJECTED from /Users/deepamondal/Downloads/BCS 371/FitEarn/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -154,10 +157,10 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/deepamond
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/deepamondal/.gradle/caches/transforms-4/17690b2aba4e6b8a4af02ccf5330d961/transformed/play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/deepamondal/.gradle/caches/transforms-4/c702f5b2bed2e909295e881677de1bc1/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/deepamondal/.gradle/caches/transforms-4/c702f5b2bed2e909295e881677de1bc1/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/5d4e51d37adcde6502afd3f40f17f0bd/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/5d4e51d37adcde6502afd3f40f17f0bd/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/54272ed74f6000f66fe942c62b18c939/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/54272ed74f6000f66fe942c62b18c939/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc5a7233c5fe60ff74be381d821096e1/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc5a7233c5fe60ff74be381d821096e1/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cf8c27fc31163d7f45d21ca57ecc70f4/transformed/ui-test-manifest-1.7.3/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cf8c27fc31163d7f45d21ca57ecc70f4/transformed/ui-test-manifest-1.7.3/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/deepamondal/.gradle/caches/transforms-4/14014d1bc0e5f1200b95c175ef12c442/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/deepamondal/.gradle/caches/transforms-4/14014d1bc0e5f1200b95c175ef12c442/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/deepamondal/.gradle/caches/transforms-4/fccc75f8a709ce302e204accb6ea0ad2/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:22:5-26:19
@@ -290,36 +293,36 @@ MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/deepam
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/deepamondal/.gradle/caches/transforms-4/c702f5b2bed2e909295e881677de1bc1/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
 MERGED from [androidx.compose.material3:material3-android:1.3.0] /Users/deepamondal/.gradle/caches/transforms-4/a9ecc7c06352cc7f82134a69b911b8e1/transformed/material3-release/AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material3:material3-android:1.3.0] /Users/deepamondal/.gradle/caches/transforms-4/a9ecc7c06352cc7f82134a69b911b8e1/transformed/material3-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.material:material-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/afb409dca9075351554f2c3315e0a414/transformed/material-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/afb409dca9075351554f2c3315e0a414/transformed/material-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-ripple-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/423439fe6d3a734227c059b94ff7aed2/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-ripple-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/423439fe6d3a734227c059b94ff7aed2/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/22c8b0e6e086f52b88233b44b49f81f5/transformed/foundation-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/22c8b0e6e086f52b88233b44b49f81f5/transformed/foundation-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/29ccdb60a2566271f3708ecd4c8e6eba/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/29ccdb60a2566271f3708ecd4c8e6eba/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f397bf283db8d7582a9f16678a404cd7/transformed/animation-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f397bf283db8d7582a9f16678a404cd7/transformed/animation-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/53a4649607ab0406d5af23eb1aeed5c8/transformed/animation-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/53a4649607ab0406d5af23eb1aeed5c8/transformed/animation-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/adc8e1d4a08d4e756b2ae9d79888ef01/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/adc8e1d4a08d4e756b2ae9d79888ef01/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/adade4b7a0de433b75a2b2c513e65bc7/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/adade4b7a0de433b75a2b2c513e65bc7/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/12beee61e06bd74f5d5f633965dda95a/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/12beee61e06bd74f5d5f633965dda95a/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f2dd24b6829cf3e0c159a0b8b7e0eb5f/transformed/ui-util-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f2dd24b6829cf3e0c159a0b8b7e0eb5f/transformed/ui-util-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/146889a92149aebd3c88cd551c900d28/transformed/ui-text-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/146889a92149aebd3c88cd551c900d28/transformed/ui-text-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/cb7301e1322b1ba81fb10cd4d7d9ba1e/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/cb7301e1322b1ba81fb10cd4d7d9ba1e/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/5d4e51d37adcde6502afd3f40f17f0bd/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/5d4e51d37adcde6502afd3f40f17f0bd/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/75067e59ddd7c2d4e22e789c75fcb715/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/75067e59ddd7c2d4e22e789c75fcb715/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/54272ed74f6000f66fe942c62b18c939/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/54272ed74f6000f66fe942c62b18c939/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/2b304a3b5b745ef4a44b170948e2b278/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/2b304a3b5b745ef4a44b170948e2b278/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/0a9ab9c02dd5234b632c2dde6033a8f4/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/0a9ab9c02dd5234b632c2dde6033a8f4/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/56605b262b04809d094010668096180c/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/56605b262b04809d094010668096180c/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/bd35a34862a911e0dbf9036ea6d5d9d1/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/bd35a34862a911e0dbf9036ea6d5d9d1/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/6410a932a6bfdf6d6b275812993d135e/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/6410a932a6bfdf6d6b275812993d135e/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/6410c36e7dd50a1d0d3d8faa591365a5/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/6410c36e7dd50a1d0d3d8faa591365a5/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/8b8c3892ff58acade5edec3da0d5db43/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/8b8c3892ff58acade5edec3da0d5db43/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/a919df955e8dd128123d0f1bc8f116eb/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/a919df955e8dd128123d0f1bc8f116eb/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc929dc3d5ac3f5a9f81eb7f16c53c87/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc929dc3d5ac3f5a9f81eb7f16c53c87/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/16ffdd5a120d56296806df57554714a1/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/16ffdd5a120d56296806df57554714a1/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/f66bdbb81f4d52d6b57d974fb7384c4e/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/f66bdbb81f4d52d6b57d974fb7384c4e/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/d0d9d4f1b8b1246327668a4f12c87d40/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/d0d9d4f1b8b1246327668a4f12c87d40/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc5a7233c5fe60ff74be381d821096e1/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc5a7233c5fe60ff74be381d821096e1/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/43414bf7cf5955952af0e581d155cc8f/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/43414bf7cf5955952af0e581d155cc8f/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cf8c27fc31163d7f45d21ca57ecc70f4/transformed/ui-test-manifest-1.7.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cf8c27fc31163d7f45d21ca57ecc70f4/transformed/ui-test-manifest-1.7.3/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/deepamondal/.gradle/caches/transforms-4/f371bff217c97608b29ce0bad5ac5b5e/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/deepamondal/.gradle/caches/transforms-4/f371bff217c97608b29ce0bad5ac5b5e/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.1.0] /Users/deepamondal/.gradle/caches/transforms-4/ebacc55ed962127252c9a0a2ef90862e/transformed/loader-1.1.0/AndroidManifest.xml:20:5-22:41
@@ -378,14 +381,14 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] /Users/deepamonda
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] /Users/deepamondal/.gradle/caches/transforms-4/c9d390b3adaa681d142a6b6ff6f60dc2/transformed/lifecycle-livedata-core-2.8.6/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] /Users/deepamondal/.gradle/caches/transforms-4/da102f3a71212a38cab27d63a1fcefc7/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] /Users/deepamondal/.gradle/caches/transforms-4/da102f3a71212a38cab27d63a1fcefc7/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-core-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/e51bf1402892fee93cf29dcd9887ad14/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-core-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/e51bf1402892fee93cf29dcd9887ad14/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f42a23304ba30d2c331b68bc830f7eec/transformed/ui-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/f42a23304ba30d2c331b68bc830f7eec/transformed/ui-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/6550e58141a1d45bae7b0836eb9691d1/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/6550e58141a1d45bae7b0836eb9691d1/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/48be35e48067ea6ee84c74ffb3e5482d/transformed/runtime-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/48be35e48067ea6ee84c74ffb3e5482d/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/154800d472605ffb7a74c5c8371670c8/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/154800d472605ffb7a74c5c8371670c8/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/1c31b12a8f11d4a427e0b1ec6fccbd12/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/1c31b12a8f11d4a427e0b1ec6fccbd12/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/9277633e6f44ca5ec779476ffc40a1b7/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/9277633e6f44ca5ec779476ffc40a1b7/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/499b520dd3c15906d1dbcdef85aab4af/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/499b520dd3c15906d1dbcdef85aab4af/transformed/runtime-release/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/deepamondal/.gradle/caches/transforms-4/14036ef0fd2e5ad5ef55ed30781cb8e3/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:17:5-44
 MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/deepamondal/.gradle/caches/transforms-4/14036ef0fd2e5ad5ef55ed30781cb8e3/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:17:5-44
 MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/deepamondal/.gradle/caches/transforms-4/49987092def7f526f1689047d75ffd63/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
@@ -428,6 +431,12 @@ MERGED from [androidx.print:print:1.0.0] /Users/deepamondal/.gradle/caches/trans
 MERGED from [androidx.print:print:1.0.0] /Users/deepamondal/.gradle/caches/transforms-4/1c858e39bdcb48fd941fcc28d7d21e84/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/deepamondal/.gradle/caches/transforms-4/d957fac1916697d4100455cbc0ab9051/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/deepamondal/.gradle/caches/transforms-4/d957fac1916697d4100455cbc0ab9051/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.microsoft.appcenter:appcenter-analytics:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/0aee775c5069b1dfd412aa74033813a2/transformed/appcenter-analytics-5.0.4/AndroidManifest.xml:9:5-11:41
+MERGED from [com.microsoft.appcenter:appcenter-analytics:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/0aee775c5069b1dfd412aa74033813a2/transformed/appcenter-analytics-5.0.4/AndroidManifest.xml:9:5-11:41
+MERGED from [com.microsoft.appcenter:appcenter-crashes:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/050ef681600773e79524f28ef722f59f/transformed/appcenter-crashes-5.0.4/AndroidManifest.xml:9:5-11:41
+MERGED from [com.microsoft.appcenter:appcenter-crashes:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/050ef681600773e79524f28ef722f59f/transformed/appcenter-crashes-5.0.4/AndroidManifest.xml:9:5-11:41
+MERGED from [com.microsoft.appcenter:appcenter:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/8ba9bf9ffbee935b8d99a58eff0b0b0f/transformed/appcenter-5.0.4/AndroidManifest.xml:9:5-11:41
+MERGED from [com.microsoft.appcenter:appcenter:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/8ba9bf9ffbee935b8d99a58eff0b0b0f/transformed/appcenter-5.0.4/AndroidManifest.xml:9:5-11:41
 	tools:overrideLibrary
 		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/deepamondal/.gradle/caches/transforms-4/c58128989e5824bdef7e9bacd12787de/transformed/firebase-auth-23.0.0/AndroidManifest.xml:23:9-148
 	android:targetSdkVersion
@@ -448,6 +457,8 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:22.1.2] /User
 MERGED from [com.google.android.gms:play-services-measurement-impl:22.1.2] /Users/deepamondal/.gradle/caches/transforms-4/a2e4ee9fcbf7d6dd8adf40c14103a829/transformed/play-services-measurement-impl-22.1.2/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.1.2] /Users/deepamondal/.gradle/caches/transforms-4/444694b96beeca990b23de8978f3e2de/transformed/play-services-measurement-sdk-api-22.1.2/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.1.2] /Users/deepamondal/.gradle/caches/transforms-4/444694b96beeca990b23de8978f3e2de/transformed/play-services-measurement-sdk-api-22.1.2/AndroidManifest.xml:23:5-67
+MERGED from [com.microsoft.appcenter:appcenter:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/8ba9bf9ffbee935b8d99a58eff0b0b0f/transformed/appcenter-5.0.4/AndroidManifest.xml:13:5-67
+MERGED from [com.microsoft.appcenter:appcenter:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/8ba9bf9ffbee935b8d99a58eff0b0b0f/transformed/appcenter-5.0.4/AndroidManifest.xml:13:5-67
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/deepamondal/.gradle/caches/transforms-4/c58128989e5824bdef7e9bacd12787de/transformed/firebase-auth-23.0.0/AndroidManifest.xml:25:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
@@ -464,6 +475,8 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:22.1.2] /User
 MERGED from [com.google.android.gms:play-services-measurement-impl:22.1.2] /Users/deepamondal/.gradle/caches/transforms-4/a2e4ee9fcbf7d6dd8adf40c14103a829/transformed/play-services-measurement-impl-22.1.2/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.1.2] /Users/deepamondal/.gradle/caches/transforms-4/444694b96beeca990b23de8978f3e2de/transformed/play-services-measurement-sdk-api-22.1.2/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.1.2] /Users/deepamondal/.gradle/caches/transforms-4/444694b96beeca990b23de8978f3e2de/transformed/play-services-measurement-sdk-api-22.1.2/AndroidManifest.xml:24:5-79
+MERGED from [com.microsoft.appcenter:appcenter:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/8ba9bf9ffbee935b8d99a58eff0b0b0f/transformed/appcenter-5.0.4/AndroidManifest.xml:14:5-79
+MERGED from [com.microsoft.appcenter:appcenter:5.0.4] /Users/deepamondal/.gradle/caches/transforms-4/8ba9bf9ffbee935b8d99a58eff0b0b0f/transformed/appcenter-5.0.4/AndroidManifest.xml:14:5-79
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/deepamondal/.gradle/caches/transforms-4/c58128989e5824bdef7e9bacd12787de/transformed/firebase-auth-23.0.0/AndroidManifest.xml:26:22-76
 activity#com.google.firebase.auth.internal.GenericIdpActivity
@@ -705,17 +718,17 @@ ADDED from [com.google.android.gms:play-services-measurement:22.1.2] /Users/deep
 	android:name
 		ADDED from [com.google.android.gms:play-services-measurement:22.1.2] /Users/deepamondal/.gradle/caches/transforms-4/867949cbe07b0744ec16b81c7b4f6551/transformed/play-services-measurement-22.1.2/AndroidManifest.xml:40:13-87
 activity#androidx.compose.ui.tooling.PreviewActivity
-ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/5d4e51d37adcde6502afd3f40f17f0bd/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc5a7233c5fe60ff74be381d821096e1/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
 	android:exported
-		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/5d4e51d37adcde6502afd3f40f17f0bd/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc5a7233c5fe60ff74be381d821096e1/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/5d4e51d37adcde6502afd3f40f17f0bd/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cc5a7233c5fe60ff74be381d821096e1/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
 activity#androidx.activity.ComponentActivity
-ADDED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/54272ed74f6000f66fe942c62b18c939/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:23:9-25:39
+ADDED from [androidx.compose.ui:ui-test-manifest:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cf8c27fc31163d7f45d21ca57ecc70f4/transformed/ui-test-manifest-1.7.3/AndroidManifest.xml:23:9-25:39
 	android:exported
-		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/54272ed74f6000f66fe942c62b18c939/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:25:13-36
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cf8c27fc31163d7f45d21ca57ecc70f4/transformed/ui-test-manifest-1.7.3/AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/deepamondal/.gradle/caches/transforms-4/54272ed74f6000f66fe942c62b18c939/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:24:13-63
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.3] /Users/deepamondal/.gradle/caches/transforms-4/cf8c27fc31163d7f45d21ca57ecc70f4/transformed/ui-test-manifest-1.7.3/AndroidManifest.xml:24:13-63
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/deepamondal/.gradle/caches/transforms-4/14014d1bc0e5f1200b95c175ef12c442/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] /Users/deepamondal/.gradle/caches/transforms-4/1498817d3f16e9b0f3162c40b805a636/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:24:9-32:20
