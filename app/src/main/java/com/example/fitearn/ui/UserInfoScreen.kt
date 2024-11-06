@@ -1,12 +1,9 @@
 package com.example.fitearn.ui
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -18,130 +15,137 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-
-im
 import com.example.fitearn.ui.theme.FitEarnTheme
 
 @Composable
-fun UserInfo(navController: NavHostController) {
-    var userDOB by remember { mutableStateOf("") }
-    var userWeight by remember { mutableStateOf("") }
-    var userHeight by remember { mutableStateOf("") }
-    var userPhone by remember { mutableStateOf("") }
+fun UserInfoScreen(navController: NavController) {
+    var dateOfBirth by remember { mutableStateOf("") }
+    var weight by remember { mutableStateOf("") }
+    var height by remember { mutableStateOf("") }
+    var phoneNumber by remember { mutableStateOf("") }
 
     Column(
-        modifier = androidx.compose.ui.Modifier
+        modifier = Modifier
             .fillMaxSize()
             .background(
-                brush = Brush.verticalGradient(
-                    colorStops = arrayOf(
-                        0.0f to Color(0xFF8A2BE2),
-                        1.0f to Color(0xFF0000FF)
+                Brush.verticalGradient(
+                    colors = listOf(
+                        Color(201, 1, 254),
+                        Color(0, 76, 249)
                     )
                 )
-            ),
-        horizontalAlignment = Alignment.CenterHorizontally
+            )
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
+        Spacer(modifier = Modifier.padding(vertical = 80.dp))
+
         Text(
-            text = "User Profile",
-            color = Color(0xFFF9972C),
-            fontSize = 60.sp,
-            modifier = androidx.compose.ui.Modifier
-                .padding(top = 200.dp)
-                .width(319.dp),
-            textAlign = TextAlign.Center
+            text = "User Info",
+            color = Color(255, 152, 0, 255),
+            fontSize = 32.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(vertical = 20.dp)
         )
 
-        Spacer(modifier = androidx.compose.ui.Modifier.height(80.dp))
+        Spacer(modifier = Modifier.padding(vertical = 10.dp))
 
         TextField(
-            value = userDOB,
-            onValueChange = { userDOB = it },
-            placeholder = { Text(text = "Date Of Birth", fontSize = 26.sp) },
-            modifier = androidx.compose.ui.Modifier
-                .width(313.dp)
-                .height(65.dp),
-            colors = TextFieldDefaults.textFieldColors(
-                containerColor = Color.White,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
-        )
-
-        Spacer(modifier = androidx.compose.ui.Modifier.height(30.dp))
-
-        TextField(
-            value = userWeight,
-            onValueChange = { userWeight = it },
-            placeholder = { Text(text = "Weight", fontSize = 26.sp) },
-            modifier = androidx.compose.ui.Modifier
-                .width(313.dp)
-                .height(65.dp),
-            colors = TextFieldDefaults.textFieldColors(
-                containerColor = Color.White,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
-        )
-
-        Spacer(modifier = androidx.compose.ui.Modifier.height(30.dp))
-
-        TextField(
-            value = userHeight,
-            onValueChange = { userHeight = it },
-            placeholder = { Text(text = "Height", fontSize = 26.sp) },
-            modifier = androidx.compose.ui.Modifier
-                .width(313.dp)
-                .height(65.dp),
+            value = dateOfBirth,
+            onValueChange = { dateOfBirth = it },
+            textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+            placeholder = { Text("Date of Birth", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
-                containerColor = Color.White,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                focusedIndicatorColor = Color(255, 152, 0, 255),
+                unfocusedIndicatorColor = Color.White
             ),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
         )
 
-        Spacer(modifier = androidx.compose.ui.Modifier.height(30.dp))
+        Spacer(modifier = Modifier.padding(10.dp))
 
         TextField(
-            value = userPhone,
-            onValueChange = { userPhone = it },
-            placeholder = { Text(text = "Phone Number", fontSize = 26.sp) },
-            modifier = androidx.compose.ui.Modifier
-                .width(313.dp)
-                .height(65.dp),
-            colors = TextFieldDefaults.textFieldColors(
-                containerColor = Color.White,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
+            value = weight,
+            onValueChange = { weight = it },
+            textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+            placeholder = { Text("Weight", color = Color.White, fontSize = 20.sp) },
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                focusedIndicatorColor = Color(255, 152, 0, 255),
+                unfocusedIndicatorColor = Color.White
             ),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
         )
 
-        Spacer(modifier = androidx.compose.ui.Modifier.height(70.dp))
+        Spacer(modifier = Modifier.padding(10.dp))
+
+        TextField(
+            value = height,
+            onValueChange = { height = it },
+            textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+            placeholder = { Text("Height", color = Color.White, fontSize = 20.sp) },
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                focusedIndicatorColor = Color(255, 152, 0, 255),
+                unfocusedIndicatorColor = Color.White
+            ),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+        )
+
+        Spacer(modifier = Modifier.padding(10.dp))
+
+        TextField(
+            value = phoneNumber,
+            onValueChange = { phoneNumber = it },
+            textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+            placeholder = { Text("Phone Number", color = Color.White, fontSize = 20.sp) },
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                focusedIndicatorColor = Color(255, 152, 0, 255),
+                unfocusedIndicatorColor = Color.White
+            ),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+        )
+
+        Spacer(modifier = Modifier.padding(30.dp))
 
         Button(
-            onClick = { /* TODO: Handle button click */ },
-            modifier = androidx.compose.ui.Modifier
-                .width(300.dp)
-                .height(80.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+            onClick = {
+                // Handle "Let's Get Started" action
+            },
+            colors = ButtonDefaults.buttonColors(containerColor = Color.White),
+            modifier = Modifier.size(200.dp, 50.dp)
         ) {
-            Text(text = "Let's Get Started", fontSize = 30.sp, color = Color.Black)
+            Text(
+                text = "Let's Get Started",
+                color = Color(0, 76, 249),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold
+            )
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewUserInfoPage() {
+fun PreviewUserInfoScreen() {
     FitEarnTheme {
-        UserInfo(navController = rememberNavController())
+        UserInfoScreen(navController = rememberNavController())
     }
 }
