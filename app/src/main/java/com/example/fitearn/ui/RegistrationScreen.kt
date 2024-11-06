@@ -5,11 +5,13 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -88,99 +90,146 @@ fun RegistrationPage(navController: NavController) {
             )
         }
 
-        Spacer(modifier = Modifier.padding(vertical = 50.dp))
+        Spacer(modifier = Modifier.padding(vertical = 30.dp))
 
         TextField(
             value = firstNameState,
             onValueChange = { firstNameState = it },
-            textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+            textStyle = TextStyle(
+                color = if (firstNameState.isEmpty()) Color.White else Color.Green,
+                fontSize = 20.sp
+            ),
             placeholder = { Text("First Name", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = Color(255, 152, 0, 255),
-                unfocusedIndicatorColor = Color.White
+                focusedIndicatorColor = if (firstNameState.isEmpty()) Color.White else Color.Green,
+                unfocusedIndicatorColor = if (firstNameState.isEmpty()) Color.White else Color.Green
             ),
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp),
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = if (firstNameState.isEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
+                    contentDescription = "status Icon",
+                    tint = if (firstNameState.isEmpty()) Color.Red else Color.Green
+                )
+            },
         )
-        if (firstNameError.isNotEmpty()) {
-            Text(text = firstNameError, color = Color.Red, fontSize = 12.sp)
-        }
 
         Spacer(modifier = Modifier.padding(5.dp))
 
         TextField(
             value = lastNameState,
             onValueChange = { lastNameState = it },
-            textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+            textStyle = TextStyle(
+                color = if (lastNameState.isEmpty()) Color.White else Color.Green,
+                fontSize = 20.sp
+            ),
             placeholder = { Text("Last Name", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = Color(255, 152, 0, 255),
-                unfocusedIndicatorColor = Color.White
+                focusedIndicatorColor = if (lastNameState.isEmpty()) Color.White else Color.Green,
+                unfocusedIndicatorColor = if (lastNameState.isEmpty()) Color.White else Color.Green
             ),
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp),
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = if (lastNameState.isEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
+                    contentDescription = "status Icon",
+                    tint = if (lastNameState.isEmpty()) Color.Red else Color.Green
+                )
+            },
         )
-        if (lastNameError.isNotEmpty()) {
-            Text(text = lastNameError, color = Color.Red, fontSize = 12.sp)
-        }
 
         Spacer(modifier = Modifier.padding(5.dp))
 
         TextField(
             value = emailState,
             onValueChange = { emailState = it },
-            textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+            textStyle = TextStyle(
+                color = if (emailError.isNotEmpty()) Color.White else Color.Green,
+                fontSize = 20.sp
+            ),
             placeholder = { Text("Email", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = Color(255, 152, 0, 255),
-                unfocusedIndicatorColor = Color.White
+                focusedIndicatorColor = if (emailError.isNotEmpty()) Color.White else Color.Green,
+                unfocusedIndicatorColor = if (emailError.isNotEmpty()) Color.White else Color.Green
             ),
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp),
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = if (emailError.isNotEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
+                    contentDescription = "status Icon",
+                    tint = if (emailError.isNotEmpty()) Color.Red else Color.Green
+                )
+            },
         )
-        if (emailError.isNotEmpty()) {
-            Text(text = emailError, color = Color.Red, fontSize = 12.sp)
-        }
+
 
         Spacer(modifier = Modifier.padding(5.dp))
 
         TextField(
             value = passwordState,
             onValueChange = { passwordState = it },
-            textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+            textStyle = TextStyle(
+                color = if (passwordError.isNotEmpty()) Color.White else Color.Green,
+                fontSize = 20.sp
+            ),
             placeholder = { Text("Password", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = Color(255, 152, 0, 255),
-                unfocusedIndicatorColor = Color.White
+                focusedIndicatorColor = if (passwordError.isNotEmpty()) Color.White else Color.Green,
+                unfocusedIndicatorColor = if (passwordError.isNotEmpty()) Color.White else Color.Green
             ),
             trailingIcon = {
-                IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                
+                Row(
+                    modifier = Modifier.padding(end = 12.dp),
+
+                    horizontalArrangement = Arrangement.End,
+                    verticalAlignment = Alignment.CenterVertically
+
+                ){
+                    IconButton(
+                        onClick = { passwordVisible = !passwordVisible },
+                    ) {
+                        Icon(
+                            painter = painterResource(id = if (passwordVisible) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24),
+                            contentDescription = if (passwordVisible) "Show Password" else "Hide Password",
+                            tint = Color.White
+                        )
+                    }
+
                     Icon(
-                        painter = painterResource(id = if (passwordVisible) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24),
-                        contentDescription = if (passwordVisible) "Show Password" else "Hide Password",
-                        tint = Color.White
+                        painter = painterResource(id = if (passwordError.isNotEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
+                        contentDescription = "status Icon",
+                        tint = if (passwordError.isNotEmpty()) Color.Red else Color.Green
                     )
                 }
+
             },
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp),
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation()
         )
-        if (passwordError.isNotEmpty()) {
-            Text(text = passwordError, color = Color.Red, fontSize = 12.sp)
-        }
 
         Spacer(modifier = Modifier.padding(5.dp))
 
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 30.dp),
-            horizontalArrangement = Arrangement.Start,
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Checkbox(
@@ -243,13 +292,25 @@ fun RegistrationPage(navController: NavController) {
             }
         }
 
+        Spacer(modifier = Modifier.padding(vertical = 5.dp))
+
         if (registrationError.isNotEmpty()) {
-            Text(
-                text = registrationError,
+            Surface(
+                modifier = Modifier.padding(20.dp),
                 color = Color.Red,
-                fontSize = 16.sp,
-                modifier = Modifier.padding(16.dp)
-            )
+                shape = RoundedCornerShape(10.dp),
+            ) {
+                Text(
+                    text = registrationError,
+                    color = Color.White,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(15.dp),
+
+                )
+            }
+
         }
     }
 }
