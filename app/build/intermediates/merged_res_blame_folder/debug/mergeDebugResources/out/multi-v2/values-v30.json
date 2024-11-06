@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fitearn.app-mergeDebugResources-65:/values-v30/values-v30.xml",
+            "outputFile": "com.example.fitearn.app-mergeDebugResources-64:/values-v30/values-v30.xml",
             "map": [
                 {
-                    "source": "/Users/deepamondal/.gradle/caches/transforms-4/a9ecc7c06352cc7f82134a69b911b8e1/transformed/material3-release/res/values-v30/values-v30.xml",
+                    "source": "/Users/deepamondal/.gradle/caches/transforms-4/037848d28e1eee5dc2886ce0c652f6b1/transformed/material3-release/res/values-v30/values-v30.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
