@@ -1,6 +1,7 @@
 package com.example.fitearn.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -187,9 +188,10 @@ fun RegistrationPage(navController: NavController) {
                 onCheckedChange = { termCondition = it },
                 colors = CheckboxDefaults.colors(
                     checkedColor = Color.White,
-                    uncheckedColor = Color.Transparent,
+                    uncheckedColor = Color.White,
                     checkmarkColor = Color.White
-                )
+                ),
+
             )
             Text(
                 text = "Agree with Terms & Conditions",
