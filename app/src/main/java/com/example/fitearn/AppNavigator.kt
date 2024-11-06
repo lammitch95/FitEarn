@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.ui.LoginPage
 import com.example.fitearn.ui.RegistrationPage
 import com.example.fitearn.ui.SplashScreen
+import com.example.fitearn.ui.UserInfoScreen
 
 @Composable
 fun AppNavigator() {
@@ -18,6 +19,7 @@ fun AppNavigator() {
         composable("login") { LoginPage(navController) }
         composable("dashboard") { DashboardPage(navController) }
         composable("registration") { RegistrationPage(navController) }
+        composable("userinfo") { UserInfoScreen(navController) }
     }
 }
 

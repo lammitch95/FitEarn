@@ -1,4 +1,4 @@
-#Tue Nov 05 21:56:30 EST 2024
+#Tue Nov 05 22:48:06 EST 2024
 base.0=/Users/deepamondal/Downloads/BCS 371/FitEarn/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/Users/deepamondal/Downloads/BCS 371/FitEarn/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.2=/Users/deepamondal/Downloads/BCS 371/FitEarn/app/build/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex

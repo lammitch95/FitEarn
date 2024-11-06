@@ -217,7 +217,7 @@ fun RegistrationPage(navController: NavController) {
                         )
                         isLoading = false
                         if (success) {
-                            navController.popBackStack() // Navigate back to login screen on successful registration
+                            navController.navigate("userinfo")
                         } else {
                             registrationError = "Registration failed. Please try again."
                         }
