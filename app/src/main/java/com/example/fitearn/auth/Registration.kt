@@ -10,8 +10,7 @@ object Registration {
     suspend fun registerUser(firstName: String,
                              lastName: String,
                              email: String,
-                             password: String,
-                             birthdate: String): Boolean {
+                             password: String): Boolean {
         return try {
             val result = auth.createUserWithEmailAndPassword(email, password).await()
             val profileUpdates = UserProfileChangeRequest.Builder()
