@@ -22,4 +22,6 @@ class MainActivity : ComponentActivity() {
        // val appSecret = AppSecrets.getAppCenterSecret(this)
        // AppCenter.start(application, appSecret, Analytics::class.java, Crashes::class.java)
     }
+
+
 }
