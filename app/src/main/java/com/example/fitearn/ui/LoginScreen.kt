@@ -29,12 +29,8 @@ import com.example.fitearn.utils.ValidationUtils
 import kotlinx.coroutines.launch
 
 @Composable
-fun LoginPage(navController: NavHostController) {
-    var emailState by remember { mutableStateOf("") }
-    var passwordState by remember { mutableStateOf("") }
-    var passwordVisible by remember { mutableStateOf(false) }
-    var loginError by remember { mutableStateOf("") }
-    val coroutineScope = rememberCoroutineScope()
+fun LoginPage(navController: NavHostController, loginViewModel: LoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+
 
     Column(
         modifier = Modifier
@@ -82,8 +78,8 @@ fun LoginPage(navController: NavHostController) {
         Spacer(modifier = Modifier.padding(vertical = 50.dp))
 
         TextField(
-            value = emailState,
-            onValueChange = { emailState = it },
+            value = loginViewModel.emailState.value,
+            onValueChange = { loginViewModel.onEmailChange(it)},
             textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
             placeholder = {
                 Text(
@@ -108,8 +104,8 @@ fun LoginPage(navController: NavHostController) {
         Spacer(modifier = Modifier.padding(5.dp))
 
         TextField(
-            value = passwordState,
-            onValueChange = { passwordState = it },
+            value = loginViewModel.passwordState.value,
+            onValueChange = { loginViewModel.onPasswordChange(it)},
             textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
             placeholder = {
                 Text(
@@ -128,13 +124,13 @@ fun LoginPage(navController: NavHostController) {
             ),
             trailingIcon = {
                 IconButton(
-                    onClick = { passwordVisible = !passwordVisible }
+                    onClick = { loginViewModel.togglePasswordVisibility()}
                 ) {
                     val iconChange =
-                        painterResource(id = if (passwordVisible) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24)
+                        painterResource(id = if (loginViewModel.passwordVisibility.value) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24)
                     Icon(
                         painter = iconChange,
-                        contentDescription = if (passwordVisible) "Show Password" else "Hide Password",
+                        contentDescription = if (loginViewModel.passwordVisibility.value) "Show Password" else "Hide Password",
                         tint = Color.White
                     )
                 }
@@ -142,14 +138,12 @@ fun LoginPage(navController: NavHostController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 40.dp),
-            visualTransformation =
-            if (passwordVisible) VisualTransformation.None
-            else PasswordVisualTransformation()
+            visualTransformation = if (loginViewModel.passwordVisibility.value) VisualTransformation.None else PasswordVisualTransformation()
         )
 
-        if (loginError.isNotEmpty()) {
+        if (loginViewModel.loginError.value.isNotEmpty()) {
             Text(
-                text = loginError,
+                text = loginViewModel.loginError.value,
                 color = Color.Red,
                 fontSize = 16.sp,
                 modifier = Modifier.padding(16.dp)
@@ -175,21 +169,9 @@ fun LoginPage(navController: NavHostController) {
 
         Button(
             onClick = {
-                val emailError = ValidationUtils.validateEmail(emailState)
-                val passwordError = ValidationUtils.validatePassword(passwordState)
 
-                if (emailError.isEmpty() && passwordError.isEmpty()) {
-                    // Perform Firebase login in coroutine
-                    coroutineScope.launch {
-                        val loginSuccess = Login.loginUser(emailState, passwordState)
-                        if (loginSuccess) {
-                            navController.navigate("dashboard") // Navigate to the home screen after successful login
-                        } else {
-                            loginError = "Login failed. Please check your credentials."
-                        }
-                    }
-                } else {
-                    loginError = emailError.ifEmpty { passwordError }
+                loginViewModel.login {
+                    navController.navigate("dashboard")
                 }
             },
             colors = ButtonDefaults.buttonColors(

@@ -31,23 +31,9 @@ import com.example.fitearn.utils.ValidationUtils
 import kotlinx.coroutines.launch
 
 @Composable
-fun RegistrationPage(navController: NavController) {
-    var firstNameState by remember { mutableStateOf("") }
-    var lastNameState by remember { mutableStateOf("") }
-    var emailState by remember { mutableStateOf("") }
-    var passwordState by remember { mutableStateOf("") }
-    var termCondition by remember { mutableStateOf(false) }
-    var passwordVisible by remember { mutableStateOf(false) }
-    var isLoading by remember { mutableStateOf(false) }
-    var registrationError by remember { mutableStateOf("") }
+fun RegistrationPage(navController: NavController, registrationViewModel: RegistrationScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
 
     val coroutineScope = rememberCoroutineScope()
-
-    // Validation error messages
-    val firstNameError = if (firstNameState.isEmpty()) "First name cannot be empty" else ""
-    val lastNameError = if (lastNameState.isEmpty()) "Last name cannot be empty" else ""
-    val emailError = if (emailState.isEmpty()) "Email cannot be empty" else ValidationUtils.validateEmail(emailState)
-    val passwordError = if (passwordState.isEmpty()) "Password cannot be empty" else ValidationUtils.validatePassword(passwordState)
 
     Column(
         modifier = Modifier
@@ -93,27 +79,27 @@ fun RegistrationPage(navController: NavController) {
         Spacer(modifier = Modifier.padding(vertical = 30.dp))
 
         TextField(
-            value = firstNameState,
-            onValueChange = { firstNameState = it },
+            value = registrationViewModel.firstNameState.value,
+            onValueChange = { registrationViewModel.onFirstNameChange(it) },
             textStyle = TextStyle(
-                color = if (firstNameState.isEmpty()) Color.White else Color.Green,
+                color = if (registrationViewModel.firstNameState.value.isEmpty()) Color.White else Color.Green,
                 fontSize = 20.sp
             ),
             placeholder = { Text("First Name", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = if (firstNameState.isEmpty()) Color.White else Color.Green,
-                unfocusedIndicatorColor = if (firstNameState.isEmpty()) Color.White else Color.Green
+                focusedIndicatorColor = if (registrationViewModel.firstNameState.value.isEmpty()) Color.White else Color.Green,
+                unfocusedIndicatorColor = if (registrationViewModel.firstNameState.value.isEmpty()) Color.White else Color.Green
             ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 40.dp),
             trailingIcon = {
                 Icon(
-                    painter = painterResource(id = if (firstNameState.isEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
+                    painter = painterResource(id = if (registrationViewModel.firstNameState.value.isEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
                     contentDescription = "status Icon",
-                    tint = if (firstNameState.isEmpty()) Color.Red else Color.Green
+                    tint = if (registrationViewModel.firstNameState.value.isEmpty()) Color.Red else Color.Green
                 )
             },
         )
@@ -121,27 +107,27 @@ fun RegistrationPage(navController: NavController) {
         Spacer(modifier = Modifier.padding(5.dp))
 
         TextField(
-            value = lastNameState,
-            onValueChange = { lastNameState = it },
+            value = registrationViewModel.lastNameState.value,
+            onValueChange = { registrationViewModel.onLastNameChange(it) },
             textStyle = TextStyle(
-                color = if (lastNameState.isEmpty()) Color.White else Color.Green,
+                color = if (registrationViewModel.lastNameState.value.isEmpty()) Color.White else Color.Green,
                 fontSize = 20.sp
             ),
             placeholder = { Text("Last Name", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = if (lastNameState.isEmpty()) Color.White else Color.Green,
-                unfocusedIndicatorColor = if (lastNameState.isEmpty()) Color.White else Color.Green
+                focusedIndicatorColor = if (registrationViewModel.lastNameState.value.isEmpty()) Color.White else Color.Green,
+                unfocusedIndicatorColor = if (registrationViewModel.lastNameState.value.isEmpty()) Color.White else Color.Green
             ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 40.dp),
             trailingIcon = {
                 Icon(
-                    painter = painterResource(id = if (lastNameState.isEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
+                    painter = painterResource(id = if (registrationViewModel.lastNameState.value.isEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
                     contentDescription = "status Icon",
-                    tint = if (lastNameState.isEmpty()) Color.Red else Color.Green
+                    tint = if (registrationViewModel.lastNameState.value.isEmpty()) Color.Red else Color.Green
                 )
             },
         )
@@ -149,27 +135,27 @@ fun RegistrationPage(navController: NavController) {
         Spacer(modifier = Modifier.padding(5.dp))
 
         TextField(
-            value = emailState,
-            onValueChange = { emailState = it },
+            value = registrationViewModel.emailState.value,
+            onValueChange = { registrationViewModel.onEmailChange(it)},
             textStyle = TextStyle(
-                color = if (emailError.isNotEmpty()) Color.White else Color.Green,
+                color = if (registrationViewModel.emailError.isNotEmpty()) Color.White else Color.Green,
                 fontSize = 20.sp
             ),
             placeholder = { Text("Email", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = if (emailError.isNotEmpty()) Color.White else Color.Green,
-                unfocusedIndicatorColor = if (emailError.isNotEmpty()) Color.White else Color.Green
+                focusedIndicatorColor = if (registrationViewModel.emailError.isNotEmpty()) Color.White else Color.Green,
+                unfocusedIndicatorColor = if (registrationViewModel.emailError.isNotEmpty()) Color.White else Color.Green
             ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 40.dp),
             trailingIcon = {
                 Icon(
-                    painter = painterResource(id = if (emailError.isNotEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
+                    painter = painterResource(id = if (registrationViewModel.emailError.isNotEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
                     contentDescription = "status Icon",
-                    tint = if (emailError.isNotEmpty()) Color.Red else Color.Green
+                    tint = if (registrationViewModel.emailError.isNotEmpty()) Color.Red else Color.Green
                 )
             },
         )
@@ -178,18 +164,18 @@ fun RegistrationPage(navController: NavController) {
         Spacer(modifier = Modifier.padding(5.dp))
 
         TextField(
-            value = passwordState,
-            onValueChange = { passwordState = it },
+            value = registrationViewModel.passwordState.value,
+            onValueChange = { registrationViewModel.onPasswordChange(it) },
             textStyle = TextStyle(
-                color = if (passwordError.isNotEmpty()) Color.White else Color.Green,
+                color = if (registrationViewModel.passwordError.isNotEmpty()) Color.White else Color.Green,
                 fontSize = 20.sp
             ),
             placeholder = { Text("Password", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = if (passwordError.isNotEmpty()) Color.White else Color.Green,
-                unfocusedIndicatorColor = if (passwordError.isNotEmpty()) Color.White else Color.Green
+                focusedIndicatorColor = if (registrationViewModel.passwordError.isNotEmpty()) Color.White else Color.Green,
+                unfocusedIndicatorColor = if (registrationViewModel.passwordError.isNotEmpty()) Color.White else Color.Green
             ),
             trailingIcon = {
                 
@@ -201,19 +187,19 @@ fun RegistrationPage(navController: NavController) {
 
                 ){
                     IconButton(
-                        onClick = { passwordVisible = !passwordVisible },
+                        onClick = { registrationViewModel.onPasswordVisibility() },
                     ) {
                         Icon(
-                            painter = painterResource(id = if (passwordVisible) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24),
-                            contentDescription = if (passwordVisible) "Show Password" else "Hide Password",
+                            painter = painterResource(id = if (registrationViewModel.passwordVisiblity.value) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24),
+                            contentDescription = if (registrationViewModel.passwordVisiblity.value) "Show Password" else "Hide Password",
                             tint = Color.White
                         )
                     }
 
                     Icon(
-                        painter = painterResource(id = if (passwordError.isNotEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
+                        painter = painterResource(id = if (registrationViewModel.passwordError.isNotEmpty()) R.drawable.baseline_error_24 else R.drawable.baseline_check_circle_24),
                         contentDescription = "status Icon",
-                        tint = if (passwordError.isNotEmpty()) Color.Red else Color.Green
+                        tint = if (registrationViewModel.passwordError.isNotEmpty()) Color.Red else Color.Green
                     )
                 }
 
@@ -221,7 +207,7 @@ fun RegistrationPage(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 40.dp),
-            visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation()
+            visualTransformation = if (registrationViewModel.passwordVisiblity.value) VisualTransformation.None else PasswordVisualTransformation()
         )
 
         Spacer(modifier = Modifier.padding(5.dp))
@@ -233,8 +219,8 @@ fun RegistrationPage(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Checkbox(
-                checked = termCondition,
-                onCheckedChange = { termCondition = it },
+                checked = registrationViewModel.termCondition.value,
+                onCheckedChange = { registrationViewModel.onTermConditionChange(it) },
                 colors = CheckboxDefaults.colors(
                     checkedColor = Color.White,
                     uncheckedColor = Color.White,
@@ -254,33 +240,28 @@ fun RegistrationPage(navController: NavController) {
         Button(
             onClick = {
                 // Check all validation and the checkbox condition
-                if (firstNameError.isEmpty() && lastNameError.isEmpty() && emailError.isEmpty() &&
-                    passwordError.isEmpty() && termCondition
+                if (registrationViewModel.registrationError.value.isEmpty() && registrationViewModel.lastNameError.isEmpty() &&
+                    registrationViewModel.emailError.isEmpty() && registrationViewModel.passwordError.isEmpty() && registrationViewModel.termCondition.value
                 ) {
-                    isLoading = true
-                    registrationError = ""
+                    registrationViewModel.onIsLoadingChange(true)
+
                     coroutineScope.launch {
-                        val success = Registration.registerUser(
-                            firstName = firstNameState,
-                            lastName = lastNameState,
-                            email = emailState,
-                            password = passwordState
-                        )
-                        isLoading = false
+                        val success = registrationViewModel.registerUser()
+                        registrationViewModel.onIsLoadingChange(false)
                         if (success) {
                             navController.navigate("userinfo")
                         } else {
-                            registrationError = "Registration failed. Please try again."
+                            registrationViewModel.onRegistrationError("Registration failed. Please try again.")
                         }
                     }
                 } else {
-                    registrationError = "Please fill all fields correctly and accept the Terms & Conditions."
+                    registrationViewModel.onRegistrationError("Registration failed. Please try again.")
                 }
             },
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             modifier = Modifier.size(150.dp, 50.dp)
         ) {
-            if (isLoading) {
+            if (registrationViewModel.isLoading.value) {
                 CircularProgressIndicator(color = Color(0, 76, 249), modifier = Modifier.size(20.dp))
             } else {
                 Text(
@@ -294,14 +275,14 @@ fun RegistrationPage(navController: NavController) {
 
         Spacer(modifier = Modifier.padding(vertical = 5.dp))
 
-        if (registrationError.isNotEmpty()) {
+        if (registrationViewModel.registrationError.value.isNotEmpty()) {
             Surface(
                 modifier = Modifier.padding(20.dp),
                 color = Color.Red,
                 shape = RoundedCornerShape(10.dp),
             ) {
                 Text(
-                    text = registrationError,
+                    text = registrationViewModel.registrationError.value,
                     color = Color.White,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold,
