@@ -183,7 +183,7 @@ fun LoginPage(navController: NavHostController) {
                     coroutineScope.launch {
                         val loginSuccess = Login.loginUser(emailState, passwordState)
                         if (loginSuccess) {
-                            navController.navigate("home") // Navigate to the home screen after successful login
+                            navController.navigate("dashboard") // Navigate to the home screen after successful login
                         } else {
                             loginError = "Login failed. Please check your credentials."
                         }
