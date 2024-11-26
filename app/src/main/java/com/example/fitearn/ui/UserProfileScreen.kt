@@ -1,5 +1,6 @@
 package com.example.fitearn.ui
 
+import com.example.fitearn.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -26,6 +27,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -40,13 +42,19 @@ import com.example.fitearn.R
 import com.example.fitearn.ui.theme.FitEarnTheme
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserProfile(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF7928F8))
+            .background(
+                Brush.verticalGradient(
+                    colors = listOf(
+                        Color(201, 1, 254),
+                        Color(0, 76, 249)
+                    )
+                )
+            )
             .verticalScroll(rememberScrollState())
     ) {
         Row(
@@ -56,14 +64,14 @@ fun UserProfile(navController: NavHostController) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(
-                onClick = { /*Make this go to Dashboard*/ },
+                onClick = { navController.navigate("dashboard") },
                 modifier = Modifier.size(60.dp)
                     .align(Alignment.Top)
                     .padding(top = 10.dp)
                     .padding(start = 4.dp)
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.home_button),
+                    painter = painterResource(id = R.drawable.home_button),
                     contentDescription = "Home Icon",
                     modifier = Modifier.size(60.dp),
                     tint = Color.Unspecified
@@ -72,6 +80,7 @@ fun UserProfile(navController: NavHostController) {
 
             Spacer(modifier = Modifier.weight(0.2f))
 
+            //Functionality:
             Image(
                 painter = painterResource(id = R.drawable.user_pfp_account),
                 contentDescription = "User Profile Picture",
@@ -105,7 +114,8 @@ fun UserProfile(navController: NavHostController) {
                 modifier = Modifier
                     .fillMaxHeight()
                     .width(400.dp)
-                    .align(Alignment.Center),
+                    .align(Alignment.Center)
+                    .padding(bottom = 20.dp),
                 contentScale = ContentScale.FillBounds
             )
 
@@ -295,10 +305,10 @@ fun UserProfile(navController: NavHostController) {
                 }
 
                 Button(
-                    onClick = { /* Handle sign out */ },
+                    onClick = { navController.navigate("login") },
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
-                        .padding(top = 60.dp)
+                        .padding(top = 40.dp)
                         .width(200.dp)
                         .height(55.dp)
                 ) {
@@ -308,6 +318,7 @@ fun UserProfile(navController: NavHostController) {
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable

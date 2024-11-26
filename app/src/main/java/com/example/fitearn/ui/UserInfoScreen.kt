@@ -1,8 +1,10 @@
 package com.example.fitearn.ui
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -26,13 +28,28 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.ui.theme.FitEarnTheme
+import com.example.fitearn.utils.ValidationUtils
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.input.KeyboardType
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @Composable
 fun UserInfoScreen(navController: NavController) {
+
     var dateOfBirth by remember { mutableStateOf("") }
     var weight by remember { mutableStateOf("") }
     var height by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
+
+
+    var dateOfBirthError by remember { mutableStateOf("") }
+    var weightError by remember { mutableStateOf("") }
+    var heightError by remember { mutableStateOf("") }
+    var phoneNumberError by remember { mutableStateOf("") }
+
+    val context = LocalContext.current
+
 
     Column(
         modifier = Modifier
@@ -63,55 +80,104 @@ fun UserInfoScreen(navController: NavController) {
 
         TextField(
             value = dateOfBirth,
-            onValueChange = { dateOfBirth = it },
+            onValueChange = { if (it.length <= 8) { dateOfBirth = it.filter { it.isDigit() } } },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
-            placeholder = { Text("Date of Birth", color = Color.White, fontSize = 20.sp) },
+            placeholder = { Text("Date of Birth (MM/DD/YYYY)", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
                 focusedIndicatorColor = Color(255, 152, 0, 255),
                 unfocusedIndicatorColor = Color.White
             ),
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+            singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp)
         )
+
+        //Shows error message underneath date of birth text field
+        if (dateOfBirthError.isNotEmpty()) {
+            Text(
+                text = dateOfBirthError,
+                color = Color.Red,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(horizontal = 40.dp, vertical = 4.dp)
+            )
+        }
 
         Spacer(modifier = Modifier.padding(10.dp))
 
         TextField(
             value = weight,
-            onValueChange = { weight = it },
+            onValueChange = { if (it.length <= 3) { weight = it.filter { it.isDigit() } } },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
             placeholder = { Text("Weight", color = Color.White, fontSize = 20.sp) },
+            trailingIcon = {
+                Text("lb", color = Color.White, fontSize = 20.sp)
+            },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
                 focusedIndicatorColor = Color(255, 152, 0, 255),
                 unfocusedIndicatorColor = Color.White
             ),
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+            singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp)
         )
+
+        //Shows error message underneath weight field
+        if (weightError.isNotEmpty()) {
+            Text(
+                text = weightError,
+                color = Color.Red,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(horizontal = 40.dp, vertical = 4.dp)
+            )
+        }
 
         Spacer(modifier = Modifier.padding(10.dp))
 
         TextField(
-            value = height,
-            onValueChange = { height = it },
+            value = if (height.length > 1 ){ "${height[0]}'${height.substring(1)}" } else { height },
+            onValueChange = { if (it.length <= 2) { height = it.filter { it.isDigit() } } },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
             placeholder = { Text("Height", color = Color.White, fontSize = 20.sp) },
+            trailingIcon = {
+                Text("ft", color = Color.White, fontSize = 20.sp)
+            },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
                 focusedIndicatorColor = Color(255, 152, 0, 255),
                 unfocusedIndicatorColor = Color.White
             ),
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+            singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp)
         )
+
+        //Shows error message underneath height field
+        if (heightError.isNotEmpty()) {
+            Text(
+                text = heightError,
+                color = Color.Red,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(horizontal = 40.dp, vertical = 4.dp)
+            )
+        }
 
         Spacer(modifier = Modifier.padding(10.dp))
 
         TextField(
             value = phoneNumber,
-            onValueChange = { phoneNumber = it },
+            onValueChange = { if (it.length <= 10) { phoneNumber = it.filter { it.isDigit() } } },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
             placeholder = { Text("Phone Number", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
@@ -120,14 +186,38 @@ fun UserInfoScreen(navController: NavController) {
                 focusedIndicatorColor = Color(255, 152, 0, 255),
                 unfocusedIndicatorColor = Color.White
             ),
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
+            singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp)
         )
+
+        //Shows error message underneath phone number field
+        if (phoneNumberError.isNotEmpty()) {
+            Text(
+                text = phoneNumberError,
+                color = Color.Red,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(horizontal = 40.dp, vertical = 4.dp)
+            )
+        }
 
         Spacer(modifier = Modifier.padding(30.dp))
 
         Button(
             onClick = {
-                // Handle "Let's Get Started" action
+                dateOfBirthError = if (dateOfBirth.isEmpty()) "Date Of Birth Field Cannot Be Empty!" else ""
+                weightError = if (weight.isEmpty()) "Weight Field Cannot Be Empty!" else ""
+                heightError = if (height.isEmpty()) "Height Field Cannot Be Empty!" else ""
+                phoneNumberError = if (phoneNumber.isEmpty()) "Phone Number Field Cannot Be Empty!" else ""
+
+                if (dateOfBirthError.isEmpty() && weightError.isEmpty() && heightError.isEmpty() && phoneNumberError.isEmpty()) {
+                    Toast.makeText(context,"All fields are filled correctly. Proceeding...", Toast.LENGTH_SHORT).show()
+                    navController.navigate("userprofile") // Navigate to the user profile screen after successful registration
+                } else {
+                    Toast.makeText(context,"Must Fill Out Empty Fields! Try again.", Toast.LENGTH_SHORT).show()
+            }
+
             },
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             modifier = Modifier.size(200.dp, 50.dp)
