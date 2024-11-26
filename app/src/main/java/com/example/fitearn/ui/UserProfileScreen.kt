@@ -1,6 +1,5 @@
 package com.example.fitearn.ui
 
-import com.example.fitearn.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -38,6 +37,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.fitearn.R
 import com.example.fitearn.ui.theme.FitEarnTheme
 
 
