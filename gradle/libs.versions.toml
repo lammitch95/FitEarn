@@ -52,9 +52,12 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+appcenter-analytics = { module = "com.microsoft.appcenter:appcenter-analytics", version = "5.0.4" }
+appcenter-crashes = { module = "com.microsoft.appcenter:appcenter-crashes", version = "5.0.4" }
 
 
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices"}

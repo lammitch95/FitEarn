@@ -1,8 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.services)
 }
+
+
 
 android {
     namespace = "com.example.fitearn"
@@ -58,6 +60,10 @@ dependencies {
     // App Center Dependencies
     implementation(libs.appcenter.analytics)
     implementation(libs.appcenter.crashes)
+
+    // Coil for image loading
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
 
     // Firebase BoM for consistent versions of Firebase libraries
     implementation(platform(libs.firebase.bom))
