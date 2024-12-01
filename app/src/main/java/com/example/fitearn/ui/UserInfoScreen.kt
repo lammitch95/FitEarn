@@ -28,12 +28,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.ui.theme.FitEarnTheme
-import com.example.fitearn.utils.ValidationUtils
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import com.example.fitearn.auth.UserDataManager
-import java.text.SimpleDateFormat
-import java.util.Locale
+
 
 @Composable
 fun UserInfoScreen(navController: NavController) {
