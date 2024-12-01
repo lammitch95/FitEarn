@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:1-30:12
 MERGED from [io.coil-kt:coil-compose:2.4.0] C:\Users\mayer\.gradle\caches\transforms-4\dcbaf2918d7f2eb0370111376a6d0b7f\transformed\coil-compose-2.4.0\AndroidManifest.xml:2:1-7:12
 MERGED from [io.coil-kt:coil-compose-base:2.4.0] C:\Users\mayer\.gradle\caches\transforms-4\5b5ebadf72026dad3b022af8ac7f6e91\transformed\coil-compose-base-2.4.0\AndroidManifest.xml:2:1-7:12
 MERGED from [io.coil-kt:coil:2.4.0] C:\Users\mayer\.gradle\caches\transforms-4\3c489ad466e92c73dd1b21be08b951c0\transformed\coil-2.4.0\AndroidManifest.xml:2:1-7:12
@@ -125,9 +125,13 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\mayer\.gradle\c
 		INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACTIVITY_RECOGNITION
+ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:5:22-76
 application
-ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:5:5-26:19
-INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:7:5-28:19
+INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:7:5-28:19
 MERGED from [com.google.firebase:firebase-auth:23.1.0] C:\Users\mayer\.gradle\caches\transforms-4\4ee96a7763337a36397d2e61a40766bc\transformed\firebase-auth-23.1.0\AndroidManifest.xml:28:5-73:19
 MERGED from [com.google.firebase:firebase-auth:23.1.0] C:\Users\mayer\.gradle\caches\transforms-4\4ee96a7763337a36397d2e61a40766bc\transformed\firebase-auth-23.1.0\AndroidManifest.xml:28:5-73:19
 MERGED from [com.google.firebase:firebase-analytics:22.1.2] C:\Users\mayer\.gradle\caches\transforms-4\fb9e39a662a1b5b1088cdea95ef55a9a\transformed\firebase-analytics-22.1.2\AndroidManifest.xml:7:5-20
@@ -197,43 +201,43 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\mayer\.gradle\c
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] C:\Users\mayer\.gradle\caches\transforms-4\28ff7a9cb7a74f7f05bd7cc4b4c8d658\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:10:9-41
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:12:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:8:9-54
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:10:9-54
 	android:roundIcon
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:11:9-54
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:13:9-54
 	tools:targetApi
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:14:9-29
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:16:9-29
 	android:icon
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:9:9-43
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:11:9-43
 	android:allowBackup
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:13:9-45
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:15:9-45
 	android:dataExtractionRules
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:7:9-65
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:9:9-65
 activity#com.example.fitearn.MainActivity
-ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:15:9-25:20
+ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:17:9-27:20
 	android:label
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:18:13-45
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:20:13-45
 	android:exported
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:17:13-36
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:19:13-36
 	android:theme
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:19:13-49
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:21:13-49
 	android:name
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:16:13-41
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:18:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:25:17-77
 	android:name
-		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml:25:27-74
 uses-sdk
 INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\mayer\AndroidStudioProjects\FitEarn\app\src\main\AndroidManifest.xml
