@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fitearn.app-mergeDebugResources-72:/values-v16/values-v16.xml",
+            "outputFile": "com.example.fitearn.app-mergeDebugResources-69:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mayer\\.gradle\\caches\\transforms-4\\c2ee67d56cb3de0d51c7de9c25df41f4\\transformed\\appcompat-1.7.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\mayer\\.gradle\\caches\\transforms-4\\cfe5d68be964e28bf48b627f941fed11\\transformed\\appcompat-1.7.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -12,24 +12,6 @@
                         "endLines": "5",
                         "endColumns": "12",
                         "endOffsets": "223"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "121",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\mayer\\.gradle\\caches\\transforms-4\\58f4e247923b060e382d0c5127e44953\\transformed\\support-compat-26.1.0\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]

@@ -55,8 +55,9 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.room.common)
+
     implementation(libs.androidx.room.ktx)
+
     // Define App Center SDK Version
     val appCenterSdkVersion = "5.0.4"
 
@@ -97,6 +98,10 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.androidx.room.common.jvm)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
 
 
     // Testing dependencies
