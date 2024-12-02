@@ -69,10 +69,12 @@ fun UserProfile(navController: NavHostController) {
     var dateOfBirth by remember { mutableStateOf("") }
 
     val context = LocalContext.current
+
+    /*
     val appDatabase = remember { AppDatabase.getDatabase(context) }
     val UserProfileScreenViewModel: UserProfileScreenViewModel = viewModel(
         factory = UserProfileScreenViewModel.provideFactory(appDatabase)
-    )
+    )*/
 
     // Fetch user data
     LaunchedEffect(Unit) {

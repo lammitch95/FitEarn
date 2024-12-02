@@ -50,10 +50,12 @@ fun UserInfoScreen(navController: NavController) {
     var phoneNumberError by remember { mutableStateOf("") }
 
     val context = LocalContext.current
+
+    /*
     val appDatabase = remember { AppDatabase.getDatabase(context) }
     val UserInfoScreenViewModel: UserInfoScreenViewModel = viewModel(
         factory = UserInfoScreenViewModel.provideFactory(appDatabase)
-    )
+    )*/
 
 
     //Arranges children vertically
