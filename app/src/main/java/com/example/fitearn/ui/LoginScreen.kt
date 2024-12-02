@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -20,17 +21,22 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.R
-import com.example.fitearn.auth.Login
+import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.ui.theme.FitEarnTheme
-import com.example.fitearn.utils.ValidationUtils
-import kotlinx.coroutines.launch
+
 
 @Composable
-fun LoginPage(navController: NavHostController, loginViewModel: LoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun LoginPage(navController: NavHostController) {
 
+    val context = LocalContext.current
+    val appDatabase = remember { AppDatabase.getDatabase(context) }
+    val loginViewModel: LoginScreenViewModel = viewModel(
+        factory = LoginScreenViewModel.provideFactory(appDatabase)
+    )
 
     Column(
         modifier = Modifier

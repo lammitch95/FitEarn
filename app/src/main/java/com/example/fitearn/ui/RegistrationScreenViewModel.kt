@@ -1,11 +1,33 @@
 package com.example.fitearn.ui
 
+import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.fitearn.auth.Registration
+import com.example.fitearn.data.database.AppDatabase
+import com.example.fitearn.model.User
 import com.example.fitearn.utils.ValidationUtils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class RegistrationScreenViewModel: ViewModel(){
+class RegistrationScreenViewModel(private val appDatabase: AppDatabase): ViewModel(){
+
+    companion object {
+        fun provideFactory(appDatabase: AppDatabase): ViewModelProvider.Factory {
+            return object : ViewModelProvider.Factory {
+                @Suppress("UNCHECKED_CAST")
+                override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                    if (modelClass.isAssignableFrom(RegistrationScreenViewModel::class.java)) {
+                        return RegistrationScreenViewModel(appDatabase) as T
+                    }
+                    throw IllegalArgumentException("Unknown ViewModel class")
+                }
+            }
+        }
+    }
 
     var firstNameState = mutableStateOf("")
         private set
@@ -39,23 +61,55 @@ class RegistrationScreenViewModel: ViewModel(){
     fun onIsLoadingChange(value: Boolean){isLoading.value = value}
     fun onRegistrationError(value: String){registrationError.value = value}
 
-    suspend fun registerUser() : Boolean {
-        if (firstNameError.isEmpty() && lastNameError.isEmpty() && emailError.isEmpty() &&
-            passwordError.isEmpty() && termCondition.value) {
+    fun registerUser(onRegisterSuccess: () -> Unit) {
+        if (firstNameError.isEmpty() && lastNameError.isEmpty() && emailError.isEmpty() && passwordError.isEmpty()) {
 
             isLoading.value = true
             registrationError.value = ""
-            val success = Registration.registerUser(
-                firstName = firstNameState.value,
-                lastName = lastNameState.value,
-                email = emailState.value,
-                password = passwordState.value
-            )
-            isLoading.value = false
-            return success
+
+            viewModelScope.launch(Dispatchers.IO){
+                try{
+                    val existingUser = appDatabase.userDao().checkIfEmailExists(emailState.value)
+                    if(existingUser !=  null){
+                        withContext(Dispatchers.Main) {
+                            isLoading.value = false
+                            registrationError.value = "An account with this email already exists."
+                        }
+                        return@launch
+                    }
+
+                    val newUser = User(
+                        firstName = firstNameState.value,
+                        lastName = lastNameState.value,
+                        email = emailState.value,
+                        password = passwordState.value
+                    )
+
+                    appDatabase.userDao().insertUser(newUser)
+
+                    Registration.registerUser(
+                        firstName = firstNameState.value,
+                        lastName = lastNameState.value,
+                        email = emailState.value,
+                        password = passwordState.value
+                    )
+
+                    withContext(Dispatchers.Main) {
+                        isLoading.value = false
+                        registrationError.value = ""
+                        onRegisterSuccess()
+                    }
+                }catch(e: Exception){
+                    withContext(Dispatchers.Main) {
+                        isLoading.value = false
+                        registrationError.value = "Registration failed. Please try again."
+                    }
+                    Log.e("RegistrationError", "Registration failed", e)
+                }
+            }
+
         } else {
             registrationError.value = "Please fill all fields correctly and accept the Terms & Conditions."
-            return false
         }
     }
 
