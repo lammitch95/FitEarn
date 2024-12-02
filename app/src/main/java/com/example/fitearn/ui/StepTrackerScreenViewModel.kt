@@ -8,15 +8,15 @@ import com.example.fitearn.utils.StepTracker
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class DashboardPageViewModel(private val stepTracker: StepTracker) : ViewModel() {
+class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewModel() {
 
     companion object {
         fun provideFactory(stepTracker: StepTracker): ViewModelProvider.Factory {
             return object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                    if (modelClass.isAssignableFrom(DashboardPageViewModel::class.java)) {
-                        return DashboardPageViewModel(stepTracker) as T
+                    if (modelClass.isAssignableFrom(StepTrackerScreenViewModel::class.java)) {
+                        return StepTrackerScreenViewModel(stepTracker) as T
                     }
                     throw IllegalArgumentException("Unknown ViewModel class")
                 }

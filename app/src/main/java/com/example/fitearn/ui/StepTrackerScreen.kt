@@ -29,13 +29,13 @@ import com.example.fitearn.utils.StepTracker
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun DashboardPage(navController: NavHostController) {
+fun StepTracker(navController: NavHostController) {
 
     //Member Variables
     val context = LocalContext.current
     val stepTracker = remember { StepTracker(context) }
-    val DashboardPageViewModel: DashboardPageViewModel = viewModel(
-        factory = DashboardPageViewModel.provideFactory(stepTracker)
+    val StepTrackerScreenViewModel: StepTrackerScreenViewModel = viewModel(
+        factory = StepTrackerScreenViewModel.provideFactory(stepTracker)
     )
     var steps by remember { mutableStateOf(0) }
     var distance by remember { mutableStateOf(0.0) }
@@ -121,13 +121,13 @@ fun DashboardPage(navController: NavHostController) {
     ) {
         // Title Text *********************************************
         Text(
-            text = "Dashboard",
+            text = "Step Tracker",
             style = TextStyle(
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White
             ),
-            modifier = Modifier.padding(bottom = 24.dp)
+            modifier = Modifier.padding(bottom = 30.dp)
         )
 
         //Steps Display Text *********************************************
@@ -204,6 +204,6 @@ fun DashboardPage(navController: NavHostController) {
 @Composable
 fun PreviewDashboardPage() {
     FitEarnTheme {
-        DashboardPage(navController = rememberNavController())
+        StepTracker(navController = rememberNavController())
     }
 }
