@@ -31,7 +31,7 @@ import com.example.fitearn.ui.theme.FitEarnTheme
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import com.example.fitearn.auth.UserDataManager
-
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun UserInfoScreen(navController: NavController) {
@@ -49,6 +49,9 @@ fun UserInfoScreen(navController: NavController) {
     var phoneNumberError by remember { mutableStateOf("") }
 
     val context = LocalContext.current
+    val userInfoViewModel: UserInfoScreenViewModel = viewModel(
+        factory = UserInfoScreenViewModel.provideFactory()
+    )
 
 
     //Arranges children vertically
