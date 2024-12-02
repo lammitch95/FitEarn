@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -22,18 +23,24 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.R
 import com.example.fitearn.auth.Registration
+import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.ui.theme.FitEarnTheme
 import com.example.fitearn.utils.ValidationUtils
 import kotlinx.coroutines.launch
 
 @Composable
-fun RegistrationPage(navController: NavController, registrationViewModel: RegistrationScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun RegistrationPage(navController: NavController) {
 
-    val coroutineScope = rememberCoroutineScope()
+    val context = LocalContext.current
+    val appDatabase = remember { AppDatabase.getDatabase(context) }
+    val registrationViewModel: RegistrationScreenViewModel = viewModel(
+        factory = RegistrationScreenViewModel.provideFactory(appDatabase)
+    )
 
     Column(
         modifier = Modifier
@@ -245,14 +252,8 @@ fun RegistrationPage(navController: NavController, registrationViewModel: Regist
                 ) {
                     registrationViewModel.onIsLoadingChange(true)
 
-                    coroutineScope.launch {
-                        val success = registrationViewModel.registerUser()
-                        registrationViewModel.onIsLoadingChange(false)
-                        if (success) {
-                            navController.navigate("userinfo")
-                        } else {
-                            registrationViewModel.onRegistrationError("Registration failed. Please try again.")
-                        }
+                    registrationViewModel.registerUser{
+                        navController.navigate("login")
                     }
                 } else {
                     registrationViewModel.onRegistrationError("Registration failed. Please try again.")
