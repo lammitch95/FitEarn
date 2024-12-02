@@ -26,6 +26,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.ui.theme.FitEarnTheme
 import com.example.fitearn.utils.StepTracker
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun DashboardPage(navController: NavHostController) {
@@ -33,6 +34,9 @@ fun DashboardPage(navController: NavHostController) {
     //Member Variables
     val context = LocalContext.current
     val stepTracker = remember { StepTracker(context) }
+    val DashboardPageViewModel: DashboardPageViewModel = viewModel(
+        factory = DashboardPageViewModel.provideFactory(stepTracker)
+    )
     var steps by remember { mutableStateOf(0) }
     var distance by remember { mutableStateOf(0.0) }
     var coins by remember { mutableStateOf(0)}

@@ -49,7 +49,7 @@ fun UserInfoScreen(navController: NavController) {
     var phoneNumberError by remember { mutableStateOf("") }
 
     val context = LocalContext.current
-    val userInfoViewModel: UserInfoScreenViewModel = viewModel(
+    val UserInfoScreenViewModel: UserInfoScreenViewModel = viewModel(
         factory = UserInfoScreenViewModel.provideFactory()
     )
 
