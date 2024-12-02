@@ -32,6 +32,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import com.example.fitearn.auth.UserDataManager
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.fitearn.data.database.AppDatabase
 
 @Composable
 fun UserInfoScreen(navController: NavController) {
@@ -49,8 +50,9 @@ fun UserInfoScreen(navController: NavController) {
     var phoneNumberError by remember { mutableStateOf("") }
 
     val context = LocalContext.current
+    val appDatabase = remember { AppDatabase.getDatabase(context) }
     val UserInfoScreenViewModel: UserInfoScreenViewModel = viewModel(
-        factory = UserInfoScreenViewModel.provideFactory()
+        factory = UserInfoScreenViewModel.provideFactory(appDatabase)
     )
 
 

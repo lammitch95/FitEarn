@@ -55,7 +55,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.auth.fetchUserFromAuth
 import com.example.fitearn.ui.theme.FitEarnTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
-
+import com.example.fitearn.data.database.AppDatabase
 
 
 @Composable
@@ -69,8 +69,9 @@ fun UserProfile(navController: NavHostController) {
     var dateOfBirth by remember { mutableStateOf("") }
 
     val context = LocalContext.current
+    val appDatabase = remember { AppDatabase.getDatabase(context) }
     val UserProfileScreenViewModel: UserProfileScreenViewModel = viewModel(
-        factory = UserProfileScreenViewModel.provideFactory()
+        factory = UserProfileScreenViewModel.provideFactory(appDatabase)
     )
 
     // Fetch user data

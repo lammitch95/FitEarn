@@ -5,17 +5,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.fitearn.auth.UserDataManager
+import com.example.fitearn.data.database.AppDatabase
 import kotlinx.coroutines.launch
 
-class UserInfoScreenViewModel : ViewModel() {
+class UserInfoScreenViewModel(private val appDatabase: AppDatabase): ViewModel() {
 
     companion object {
-        fun provideFactory(): ViewModelProvider.Factory {
+        fun provideFactory(appDatabase: AppDatabase): ViewModelProvider.Factory {
             return object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     if (modelClass.isAssignableFrom(UserInfoScreenViewModel::class.java)) {
-                        return UserInfoScreenViewModel() as T
+                        return UserInfoScreenViewModel(appDatabase) as T
                     }
                     throw IllegalArgumentException("Unknown ViewModel class")
                 }
