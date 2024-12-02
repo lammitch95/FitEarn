@@ -8,6 +8,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -34,6 +35,8 @@ fun DashboardPage(navController: NavHostController) {
     val stepTracker = remember { StepTracker(context) }
     var steps by remember { mutableStateOf(0) }
     var distance by remember { mutableStateOf(0.0) }
+    var coins by remember { mutableStateOf(0)}
+    var dollars by remember { mutableStateOf(0.0)}
     var permissionGranted by remember { mutableStateOf(false) }
     var sensorAvailable by remember { mutableStateOf(true) }
 
@@ -126,6 +129,52 @@ fun DashboardPage(navController: NavHostController) {
         //Steps Display Text *********************************************
         Text(
             text = "Steps Taken: $steps",
+            style = TextStyle(
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            ),
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        // Convert Steps Button *********************************************
+        Button(
+            onClick = {
+                coins += steps / 10 // Convert steps to coins
+                steps = 0 // Reset steps
+                Toast.makeText(context, "Steps converted to coins!", Toast.LENGTH_SHORT).show()
+            },
+            modifier = Modifier.padding(bottom = 16.dp)
+        ) {
+            Text(text = "Convert Steps")
+        }
+
+        // Coins Display *********************************************
+        Text(
+            text = "Coins Earned: $coins",
+            style = TextStyle(
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            ),
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+
+        // Convert Coins Button *********************************************
+        Button(
+            onClick = {
+                dollars += coins / 100.0 // Convert coins to dollars
+                coins = 0 // Reset coins
+                Toast.makeText(context, "Coins converted to dollars!", Toast.LENGTH_SHORT).show()
+            },
+            modifier = Modifier.padding(bottom = 16.dp)
+        ) {
+            Text(text = "Convert Coins")
+        }
+
+        // Dollars Display *********************************************
+        Text(
+            text = "Dollars Earned: $%.2f".format(dollars),
             style = TextStyle(
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,

@@ -39,7 +39,7 @@ import java.time.format.TextStyle
 fun AppNavigator() {
     val navController: NavHostController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "splash") {
+    NavHost(navController = navController, startDestination = "dashboard") {
         composable("splash") { SplashScreen(navController) }
         composable("login") { LoginPage(navController) }
         composable("dashboard") { DashboardPage(navController) }
