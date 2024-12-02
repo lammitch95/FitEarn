@@ -5,6 +5,8 @@ plugins {
     id("kotlin-kapt")
 }
 
+
+
 android {
     namespace = "com.example.fitearn"
     compileSdk = 34
@@ -53,13 +55,18 @@ android {
 
 dependencies {
 
-
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
     // Define App Center SDK Version
     val appCenterSdkVersion = "5.0.4"
 
     // App Center Dependencies
     implementation(libs.appcenter.analytics)
     implementation(libs.appcenter.crashes)
+
+    // Coil for image loading
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
 
     // Firebase BoM for consistent versions of Firebase libraries
     implementation(platform(libs.firebase.bom))
@@ -87,9 +94,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.room.common.jvm)
-    implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
 
 
     // Testing dependencies

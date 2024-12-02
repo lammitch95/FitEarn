@@ -19,9 +19,8 @@ navigationRuntimeKtx = "2.8.3"
 navigationCompose = "2.8.3"
 firebaseAuthKtx = "23.1.0"
 appCenterSdkVersion = "5.0.4"
-roomCommonJvm = "2.7.0-alpha11"
+roomCommon = "2.6.1"
 roomKtx = "2.6.1"
-roomCompiler = "2.6.1"
 
 
 
@@ -59,9 +58,8 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 appcenter-analytics = { group = "com.microsoft.appcenter", name = "appcenter-analytics", version.ref = "appCenterSdkVersion" }
 appcenter-crashes = { group = "com.microsoft.appcenter", name = "appcenter-crashes", version.ref = "appCenterSdkVersion" }
-androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
-androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
 
 
 

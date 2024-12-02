@@ -1,7 +1,18 @@
 package com.example.fitearn.ui
 
-import androidx.compose.foundation.Image
+
+import coil.compose.rememberAsyncImagePainter
+import androidx.compose.foundation.clickable
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.foundation.background
+import androidx.compose.ui.unit.dp
+import android.net.Uri
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import com.example.fitearn.R
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,35 +25,74 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.fitearn.R
+import com.example.fitearn.auth.fetchUserFromAuth
 import com.example.fitearn.ui.theme.FitEarnTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.fitearn.data.database.AppDatabase
 
 
 @Composable
 fun UserProfile(navController: NavHostController) {
+
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var phoneNumber by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var weight by remember { mutableStateOf("") }
+    var dateOfBirth by remember { mutableStateOf("") }
+
+    val context = LocalContext.current
+
+    /*
+    val appDatabase = remember { AppDatabase.getDatabase(context) }
+    val UserProfileScreenViewModel: UserProfileScreenViewModel = viewModel(
+        factory = UserProfileScreenViewModel.provideFactory(appDatabase)
+    )*/
+
+    // Fetch user data
+    LaunchedEffect(Unit) {
+        fetchUserFromAuth(
+            onSuccess = { user ->
+                firstName = user.firstName
+                lastName = user.lastName
+                phoneNumber = user.phoneNumber
+                email = user.email
+                weight = user.weight
+                dateOfBirth = user.dateOfBirth
+            },
+            onError = { e ->
+                Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+            }
+        )
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -79,11 +129,9 @@ fun UserProfile(navController: NavHostController) {
 
             Spacer(modifier = Modifier.weight(0.2f))
 
-            //Functionality:
-            Image(
-                painter = painterResource(id = R.drawable.user_pfp_account),
-                contentDescription = "User Profile Picture",
-                modifier = Modifier.size(250.dp)
+            UserImagePicker(
+                modifier = Modifier.size(250.dp),
+                defaultImage = R.drawable.user_pfp_account
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -138,8 +186,9 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Name:",
+                        value = "Name: $firstName $lastName",
                         onValueChange = { /* Handle text change */ },
+                        readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
                             .height(55.dp)
@@ -159,7 +208,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                 }
 
-                // Mobile Row
+                // Mobile Row ******************************************************************************************
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -174,8 +223,9 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Mobile:",
+                        value = "Mobile: $phoneNumber",
                         onValueChange = { /* Handle text change */ },
+                        readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
                             .height(55.dp)
@@ -195,7 +245,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                 }
 
-                // Email Row
+                // Email Row ******************************************************************************************
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -210,8 +260,9 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Email:",
+                        value = "Email: $email",
                         onValueChange = { /* Handle text change */ },
+                        readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
                             .height(55.dp)
@@ -231,7 +282,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                 }
 
-                // Address Row
+                // Weight Row ******************************************************************************************
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -246,8 +297,9 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Address:",
+                        value = "Weight: $weight lb",
                         onValueChange = { /* Handle text change */ },
+                        readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
                             .height(55.dp)
@@ -267,7 +319,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                 }
 
-                // DOB Row
+                // DOB Row ******************************************************************************************
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -279,11 +331,13 @@ fun UserProfile(navController: NavHostController) {
                         contentDescription = null,
                         modifier = Modifier
                             .size(50.dp)
-                            .padding(start = 4.dp)
+                            .padding(start = 4.dp),
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(Color.Black)
                     )
                     TextField(
-                        value = "D.O.B:",
+                        value = "D.O.B: $dateOfBirth",
                         onValueChange = { /* Handle text change */ },
+                        readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
                             .height(55.dp)
@@ -317,6 +371,41 @@ fun UserProfile(navController: NavHostController) {
         }
     }
 }
+
+@Composable
+fun UserImagePicker(modifier: Modifier = Modifier, defaultImage: Int) {
+    val imageUri = remember { mutableStateOf<Uri?>(null) }
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent(),
+        onResult = { uri -> if (uri != null) imageUri.value = uri }
+    )
+
+    Box(
+        modifier = modifier
+            .size(150.dp)
+            .padding(8.dp)
+            .clip(CircleShape)
+            .clickable { launcher.launch("image/*") },
+        contentAlignment = Alignment.Center
+    ) {
+        if (imageUri.value != null) {
+            Image(
+                painter = rememberAsyncImagePainter(model = imageUri.value),
+                contentDescription = "Selected Profile Image",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+        } else {
+            Image(
+                painter = painterResource(id = defaultImage),
+                contentDescription = "Default Profile Image",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+        }
+    }
+}
+
 
 
 @Preview(showBackground = true)

@@ -28,15 +28,16 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.ui.theme.FitEarnTheme
-import com.example.fitearn.utils.ValidationUtils
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
-import java.text.SimpleDateFormat
-import java.util.Locale
+import com.example.fitearn.auth.UserDataManager
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.fitearn.data.database.AppDatabase
 
 @Composable
 fun UserInfoScreen(navController: NavController) {
 
+    //Variables
     var dateOfBirth by remember { mutableStateOf("") }
     var weight by remember { mutableStateOf("") }
     var height by remember { mutableStateOf("") }
@@ -50,10 +51,19 @@ fun UserInfoScreen(navController: NavController) {
 
     val context = LocalContext.current
 
+    /*
+    val appDatabase = remember { AppDatabase.getDatabase(context) }
+    val UserInfoScreenViewModel: UserInfoScreenViewModel = viewModel(
+        factory = UserInfoScreenViewModel.provideFactory(appDatabase)
+    )*/
 
+
+    //Arranges children vertically
     Column(
         modifier = Modifier
             .fillMaxSize()
+
+            //Background color of the screen, goes from pink to blue
             .background(
                 Brush.verticalGradient(
                     colors = listOf(
@@ -66,8 +76,11 @@ fun UserInfoScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
+
+        //Creates space betweent the title and text
         Spacer(modifier = Modifier.padding(vertical = 80.dp))
 
+        //User Info Text Title
         Text(
             text = "User Info",
             color = Color(255, 152, 0, 255),
@@ -76,13 +89,23 @@ fun UserInfoScreen(navController: NavController) {
             modifier = Modifier.padding(vertical = 20.dp)
         )
 
+        //Creates space between the text and the text field
         Spacer(modifier = Modifier.padding(vertical = 10.dp))
 
+
+        //Date Of Birth Textfield ********************************************************************
         TextField(
             value = dateOfBirth,
+
+            //Only accepts numbers and updates the textfield accordingly, digits only
+            //Trying to make this where user must only put 8 digits
             onValueChange = { if (it.length <= 8) { dateOfBirth = it.filter { it.isDigit() } } },
+
+            //Shows user a keyboard of digits to prevent user from inputting letters
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             textStyle = TextStyle(color = Color.White, fontSize = 20.sp),
+
+            //Hint of textfield
             placeholder = { Text("Date of Birth (MM/DD/YYYY)", color = Color.White, fontSize = 20.sp) },
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
@@ -106,8 +129,10 @@ fun UserInfoScreen(navController: NavController) {
             )
         }
 
+        //Creates space between textfields
         Spacer(modifier = Modifier.padding(10.dp))
 
+        //Weight Textfield ********************************************************************
         TextField(
             value = weight,
             onValueChange = { if (it.length <= 3) { weight = it.filter { it.isDigit() } } },
@@ -141,6 +166,7 @@ fun UserInfoScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.padding(10.dp))
 
+        //Height Textfield ********************************************************************
         TextField(
             value = if (height.length > 1 ){ "${height[0]}'${height.substring(1)}" } else { height },
             onValueChange = { if (it.length <= 2) { height = it.filter { it.isDigit() } } },
@@ -174,6 +200,7 @@ fun UserInfoScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.padding(10.dp))
 
+        //Phone Number Textfield ********************************************************************
         TextField(
             value = phoneNumber,
             onValueChange = { if (it.length <= 10) { phoneNumber = it.filter { it.isDigit() } } },
@@ -204,16 +231,28 @@ fun UserInfoScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.padding(30.dp))
 
+        //"Lets Get Started" Button
         Button(
             onClick = {
+
+                //Once user clicks, it will show a message beneath the textfield that is empty indicating it must be filled out
+
                 dateOfBirthError = if (dateOfBirth.isEmpty()) "Date Of Birth Field Cannot Be Empty!" else ""
                 weightError = if (weight.isEmpty()) "Weight Field Cannot Be Empty!" else ""
                 heightError = if (height.isEmpty()) "Height Field Cannot Be Empty!" else ""
                 phoneNumberError = if (phoneNumber.isEmpty()) "Phone Number Field Cannot Be Empty!" else ""
 
+                // If all fields are filled correctly, it will navigate to the user profile screen. Otherwise, it will show a toast message indicating that some fields are empty.
                 if (dateOfBirthError.isEmpty() && weightError.isEmpty() && heightError.isEmpty() && phoneNumberError.isEmpty()) {
+
+                    UserDataManager.phoneNumber = phoneNumber
+                    UserDataManager.dateOfBirth = dateOfBirth
+                    UserDataManager.weight = weight
+
                     Toast.makeText(context,"All fields are filled correctly. Proceeding...", Toast.LENGTH_SHORT).show()
-                    navController.navigate("userprofile") // Navigate to the user profile screen after successful registration
+
+                    // Navigate to the user profile screen after successful registration
+                    navController.navigate("userprofile")
                 } else {
                     Toast.makeText(context,"Must Fill Out Empty Fields! Try again.", Toast.LENGTH_SHORT).show()
             }
@@ -231,6 +270,8 @@ fun UserInfoScreen(navController: NavController) {
         }
     }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
