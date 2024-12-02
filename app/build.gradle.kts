@@ -57,6 +57,9 @@ dependencies {
     // Define App Center SDK Version
     val appCenterSdkVersion = "5.0.4"
 
+    implementation(libs.coil.compose)
+
+
     // App Center Dependencies
     implementation(libs.appcenter.analytics)
     implementation(libs.appcenter.crashes)

@@ -1,5 +1,6 @@
 package com.example.fitearn.utils
 
+import androidx.room.util.findAndInstantiateDatabaseImpl
 import com.example.fitearn.model.User
 
 object LoggedUser {
@@ -9,4 +10,24 @@ object LoggedUser {
     fun setLoggedInUser(value: User?){
         loggedInUser = value
     }
+
+    fun updateUserInfo(
+        dateOfBirth: String,
+        weight: String,
+        height: String,
+        phoneNum: String
+    ):Boolean{
+        if(loggedInUser != null){
+            loggedInUser!!.hasUserInfo = true
+            loggedInUser!!.dateOfBirth = dateOfBirth
+            loggedInUser!!.weight = weight
+            loggedInUser!!.height = height
+            loggedInUser!!.phoneNum = phoneNum
+            return true
+        }
+
+        return false
+    }
+
+
 }

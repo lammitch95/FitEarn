@@ -10,11 +10,12 @@ data class User(
     val lastName: String,
     val email: String,
     val password: String,
-    val dateOfBirth: String? = null,
-    val weight: Double? = null,
-    val height: Double? = null,
-    val phoneNum: String? = null,
+    var dateOfBirth: String? = null,
+    var weight: String? = null,
+    var height: String? = null,
+    var phoneNum: String? = null,
     val coinAmount: Int = 0,
     val stepsCount: Int = 0,
-    val distance: Double = 0.0
+    val distance: Double = 0.0,
+    var hasUserInfo: Boolean = false
 )
