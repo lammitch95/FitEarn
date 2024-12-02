@@ -1,4 +1,4 @@
-#Ignore Android Studio and Intellij files
+# Ignore Android Studio and IntelliJ IDEA files
 *.iml
 .gradle
 /.idea/caches
@@ -8,26 +8,49 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 
-#Ignore gradle wrapper files
+# Ignore gradle wrapper files
 gradle-wrapper.jar
 gradle-wrapper.properties
 
+# Ignore compiled build files
+/build/
+/captures/
+/app/build/
+/.externalNativeBuild/
+/app/build/intermediates/
+/app/build/generated/
+/app/build/tmp/
+/app/build/outputs/
 
-#Ignore compiled build files
-/build
-/captures
-.externalNativeBuild
-.cxx
-
-#Ignore Local Configuration Files
+# Ignore Local Configuration Files
 /local.properties
 local.properties
 .DS_Store
 
+# Ignore secret files
 /api_secrets/
-
-
-
-api_secrets.properties
+/api_secrets.properties
 app/google-services.json
 
+# Ignore Kotlin build artifacts
+*.kotlin_module
+
+# Ignore Logs
+*.log
+
+# Ignore IntelliJ/Android Studio workspace files
+.idea/
+
+# Ignore temporary files
+*.tmp
+*.cache
+*.apk
+*.dex
+*.so
+
+# Ignore specific processed files
+/intermediates/
+/packaged_res/
+/processed_res/
+/merged_res/
+/merged.dir/
