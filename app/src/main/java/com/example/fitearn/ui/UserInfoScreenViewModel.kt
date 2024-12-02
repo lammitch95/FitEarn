@@ -44,6 +44,7 @@ class UserInfoScreenViewModel : ViewModel() {
     // Field change handlers
     fun onDateOfBirthChange(newDateOfBirth: String) {
         dateOfBirthState.value = newDateOfBirth
+
     }
 
     fun onWeightChange(newWeight: String) {
