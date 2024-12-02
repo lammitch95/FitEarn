@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fitearn.app-mergeDebugResources-67:/values-v30/values-v30.xml",
+            "outputFile": "com.example.fitearn.app-mergeDebugResources-71:/values-v30/values-v30.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mayer\\.gradle\\caches\\transforms-4\\0460b01fe01b4ef815918e9510d49dd3\\transformed\\material3-release\\res\\values-v30\\values-v30.xml",
+                    "source": "C:\\Users\\mayer\\.gradle\\caches\\transforms-4\\76f0703a1c466c598fdc4bb787e06056\\transformed\\material3-release\\res\\values-v30\\values-v30.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
