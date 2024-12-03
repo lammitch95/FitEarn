@@ -95,8 +95,8 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewMod
             coinsState.value += stepsState.value / 10
             stepsState.value = 0 // Reset steps
 
-            stepTracker.setCurentStepCount(stepsState.value)
-            stepTracker.setInitialStepCount(stepsState.value)
+            stepTracker.setCurentStepCount(0)
+            stepTracker.setInitialStepCount(0)
 
             if(LoggedUser.loggedInUser != null){
                 LoggedUser.loggedInUser!!.coinAmount = coinsState.value
@@ -110,6 +110,7 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewMod
             if(LoggedUser.loggedInUser != null){
                 LoggedUser.loggedInUser!!.dollarAmount = dollarsState.value
             }
+            dollarsState.value = String.format("%.2f", dollarsState.value).toDouble()
             coinsState.value = 0 // Reset coins
         }
 }

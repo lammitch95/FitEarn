@@ -75,7 +75,6 @@ class StepTracker(context: Context) : SensorEventListener {
 
     fun setCurentStepCount(value: Int) {
         currentStepCount = value
-
     }
 
     fun setInitialStepCount(value: Int){
