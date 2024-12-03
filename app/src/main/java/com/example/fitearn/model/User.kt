@@ -14,8 +14,9 @@ data class User(
     var weight: String? = null,
     var height: String? = null,
     var phoneNum: String? = null,
-    val coinAmount: Int = 0,
-    val stepsCount: Int = 0,
+    var coinAmount: Int = 0,
+    var dollarAmount: Double = 0.0,
+    var stepsCount: Int = 0,
     val distance: Double = 0.0,
     var hasUserInfo: Boolean = false
 )

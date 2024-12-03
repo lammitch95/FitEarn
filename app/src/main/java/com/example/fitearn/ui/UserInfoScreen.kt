@@ -220,7 +220,7 @@ fun UserInfoScreen(navController: NavController) {
             )
         }
 
-        Spacer(modifier = Modifier.padding(30.dp))
+        Spacer(modifier = Modifier.padding(20.dp))
 
         //"Lets Get Started" Button
         Button(
@@ -249,12 +249,14 @@ fun UserInfoScreen(navController: NavController) {
 
             },
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
-            modifier = Modifier.size(200.dp, 50.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp)
         ) {
             Text(
                 text = "Let's Get Started",
                 color = Color(0, 76, 249),
-                fontSize = 20.sp,
+                fontSize = 25.sp,
                 fontWeight = FontWeight.Bold
             )
         }

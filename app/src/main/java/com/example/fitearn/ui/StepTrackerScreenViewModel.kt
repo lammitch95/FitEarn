@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.fitearn.utils.LoggedUser
 import com.example.fitearn.utils.StepTracker
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -43,12 +44,31 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewMod
         var dollarsState = mutableStateOf(0.0)
             private set
 
+        init {
+
+
+            if(LoggedUser.loggedInUser != null){
+                val initalStepCount = LoggedUser.loggedInUser!!.stepsCount ?: 0
+                stepsState.value = initalStepCount
+                stepTracker.setInitialStepCount(initalStepCount)
+                coinsState.value = LoggedUser.loggedInUser!!.coinAmount
+                dollarsState.value = LoggedUser.loggedInUser!!.dollarAmount
+
+            }
+        }
         fun startTracking() {
             stepTracker.startTracking()
             viewModelScope.launch {
                 while (true) {
-                    stepsState.value = stepTracker.getTotalSteps()
+                    val totalSteps = stepTracker.getTotalSteps()
+                    stepsState.value = totalSteps
                     distanceState.value = stepTracker.getDistanceInMiles()
+
+                    if(LoggedUser.loggedInUser != null){
+                        LoggedUser.loggedInUser!!.stepsCount = stepsState.value
+                        stepTracker.setCurentStepCount(stepsState.value)
+                    }
+
                     delay(1000L) // Update every second
                 }
             }
@@ -74,10 +94,23 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewMod
         fun convertStepsToCoins() {
             coinsState.value += stepsState.value / 10
             stepsState.value = 0 // Reset steps
+
+            stepTracker.setCurentStepCount(0)
+            stepTracker.setInitialStepCount(0)
+
+            if(LoggedUser.loggedInUser != null){
+                LoggedUser.loggedInUser!!.coinAmount = coinsState.value
+                LoggedUser.loggedInUser!!.stepsCount = stepsState.value
+            }
+
         }
 
         fun convertCoinsToDollars() {
             dollarsState.value += coinsState.value / 100.0
+            if(LoggedUser.loggedInUser != null){
+                LoggedUser.loggedInUser!!.dollarAmount = dollarsState.value
+            }
+            dollarsState.value = String.format("%.2f", dollarsState.value).toDouble()
             coinsState.value = 0 // Reset coins
         }
 }
