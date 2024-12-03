@@ -9,8 +9,8 @@
 /.idea/assetWizardSettings.xml
 
 # Ignore gradle wrapper files
-gradle-wrapper.jar
-gradle-wrapper.properties
+#gradle-wrapper.jar
+#gradle-wrapper.properties
 
 # Ignore compiled build files
 /build/
