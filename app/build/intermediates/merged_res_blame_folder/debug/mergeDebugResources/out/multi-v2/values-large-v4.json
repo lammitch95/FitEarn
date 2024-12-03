@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fitearn.app-mergeDebugResources-72:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.example.fitearn.app-mergeDebugResources-69:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mayer\\.gradle\\caches\\transforms-4\\c2ee67d56cb3de0d51c7de9c25df41f4\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\mayer\\.gradle\\caches\\transforms-4\\cfe5d68be964e28bf48b627f941fed11\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

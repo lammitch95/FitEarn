@@ -1,6 +1,5 @@
 package com.example.fitearn.ui
 
-
 import coil.compose.rememberAsyncImagePainter
 import androidx.compose.foundation.clickable
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -332,7 +331,7 @@ fun UserProfile(navController: NavHostController) {
                         modifier = Modifier
                             .size(50.dp)
                             .padding(start = 4.dp),
-                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(Color.Black)
+                        colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(Color.Black)
                     )
                     TextField(
                         value = "D.O.B: $dateOfBirth",
@@ -371,6 +370,7 @@ fun UserProfile(navController: NavHostController) {
         }
     }
 }
+
 
 @Composable
 fun UserImagePicker(modifier: Modifier = Modifier, defaultImage: Int) {

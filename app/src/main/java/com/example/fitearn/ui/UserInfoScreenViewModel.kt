@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.fitearn.auth.UserDataManager
 import com.example.fitearn.data.database.AppDatabase
+import com.example.fitearn.utils.LoggedUser
 import kotlinx.coroutines.launch
 
 class UserInfoScreenViewModel(private val appDatabase: AppDatabase): ViewModel() {
@@ -84,4 +85,21 @@ class UserInfoScreenViewModel(private val appDatabase: AppDatabase): ViewModel()
             }
         }
     }
+
+    fun updateLoggedUserInfo(onSaveSuccess: () -> Unit){
+       val sucessUpdate = LoggedUser.updateUserInfo(
+            dateOfBirthState.value,
+            weightState.value,
+            heightState.value,
+            phoneNumberState.value
+        )
+
+        if(sucessUpdate){
+            onSaveSuccess()
+        }else{
+
+        }
+
+    }
+
 }

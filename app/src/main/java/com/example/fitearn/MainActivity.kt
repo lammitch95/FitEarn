@@ -1,18 +1,15 @@
 package com.example.fitearn
-import android.Manifest
-import android.app.Activity
-import android.content.pm.PackageManager
-import android.os.Build
+
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.result.contract.ActivityResultContracts.*
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.ui.theme.FitEarnTheme
+import com.example.fitearn.utils.LoggedUser
 import com.google.firebase.FirebaseApp
+import kotlinx.coroutines.launch
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,33 +22,26 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // Request Activity Recognition permission for step tracking
-        requestActivityRecognitionPermission()
+        // Initialize AppCenter using the app secret from AppSecrets
+       // val appSecret = AppSecrets.getAppCenterSecret(this)
+       // AppCenter.start(application, appSecret, Analytics::class.java, Crashes::class.java)
     }
 
-    private val requestPermissionLauncher = registerForActivityResult(
-        RequestPermission()
-    ) { isGranted: Boolean ->
-        if (isGranted) {
-            Log.d("Permission", "ACTIVITY_RECOGNITION granted")
-        } else {
-            Log.e("Permission", "ACTIVITY_RECOGNITION denied")
+    override  fun onStop() {
+        super.onStop()
+
+        LoggedUser.loggedInUser?.let { user ->
+
+            val appDatabase = AppDatabase.getDatabase(applicationContext)
+            val userDao = appDatabase.userDao()
+
+            lifecycleScope.launch {
+                userDao.updateUser(user)
+            }
         }
-    }
 
-    // Call this function to request the permission
-    private fun requestActivityRecognitionPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
-            == PackageManager.PERMISSION_GRANTED
-        ) {
-            Log.d("Permission", "ACTIVITY_RECOGNITION already granted")
-        } else {
-            requestPermissionLauncher.launch(Manifest.permission.ACTIVITY_RECOGNITION)
-        }
+
     }
 
 
-    companion object {
-        private const val ACTIVITY_RECOGNITION_REQUEST_CODE = 1
-    }
 }

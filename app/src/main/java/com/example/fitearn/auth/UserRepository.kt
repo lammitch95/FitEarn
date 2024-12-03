@@ -41,4 +41,3 @@ fun fetchUserFromAuth(
         onError(Exception("User is not authenticated"))
     }
 }
-

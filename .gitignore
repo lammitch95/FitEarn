@@ -54,3 +54,5 @@ app/google-services.json
 /processed_res/
 /merged_res/
 /merged.dir/
+
+app/build/generated/res/**/values/values.xml

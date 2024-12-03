@@ -27,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.R
 import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.ui.theme.FitEarnTheme
+import com.example.fitearn.utils.LoggedUser
 
 
 @Composable
@@ -177,7 +178,12 @@ fun LoginPage(navController: NavHostController) {
             onClick = {
 
                 loginViewModel.login {
-                    navController.navigate("dashboard")
+                    if(LoggedUser.loggedInUser?.hasUserInfo == true){
+                        navController.navigate("dashboard")
+                    }else{
+                        navController.navigate("userinfo")
+                    }
+
                 }
             },
             colors = ButtonDefaults.buttonColors(
