@@ -1,6 +1,5 @@
 package com.example.fitearn.utils
 
-import androidx.room.util.findAndInstantiateDatabaseImpl
 import com.example.fitearn.model.User
 
 object LoggedUser {

@@ -18,10 +18,10 @@ import com.example.fitearn.ui.UserProfile
 fun AppNavigator() {
     val navController: NavHostController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "userinfo") {
+    NavHost(navController = navController, startDestination = "login") {
         composable("splash") { SplashScreen(navController) }
         composable("login") { LoginPage(navController) }
-        composable("dashboard") { DashboardScreen(navController) }
+        composable("dashboard") { StepTracker(navController) }//testing purposes we switch back to the dashboard screen later
         composable("registration") { RegistrationPage(navController) }
         composable("userinfo") { UserInfoScreen(navController) }
         composable("userprofile") { UserProfile(navController) }

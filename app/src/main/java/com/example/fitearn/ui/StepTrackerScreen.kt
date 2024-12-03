@@ -2,6 +2,7 @@ package com.example.fitearn.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -29,33 +30,27 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.ui.theme.FitEarnTheme
-import com.example.fitearn.utils.StepTracker
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fitearn.R
+import com.example.fitearn.utils.LoggedUser
 
 @Composable
 fun StepTracker(navController: NavHostController) {
 
     //Member Variables
     val context = LocalContext.current
-    val stepTracker = remember { StepTracker(context) }
-    val StepTrackerScreenViewModel: StepTrackerScreenViewModel = viewModel(
-        factory = StepTrackerScreenViewModel.provideFactory(stepTracker)
+    val stepTrackerScreenViewModel: StepTrackerScreenViewModel = viewModel(
+        factory = StepTrackerScreenViewModel.provideFactory(context)
     )
-    var steps by remember { mutableStateOf(0) }
-    var distance by remember { mutableStateOf(0.0) }
-    var coins by remember { mutableStateOf(0) }
-    var dollars by remember { mutableStateOf(0.0) }
-    var permissionGranted by remember { mutableStateOf(false) }
-    var sensorAvailable by remember { mutableStateOf(true) }
+
 
     // Permission launcher, asked the user for permission to use the sensor step
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted ->
-        permissionGranted = isGranted
+        stepTrackerScreenViewModel.setPermissionGranted(isGranted)
         if (isGranted) {
-            stepTracker.startTracking()
+            stepTrackerScreenViewModel.startTracking()
         } else {
             Toast.makeText(
                 context,
@@ -67,8 +62,8 @@ fun StepTracker(navController: NavHostController) {
 
     //Checks to see if the sensor is enabled or not, if it is not compatible, it will show the user an error message
     LaunchedEffect(Unit) {
-        sensorAvailable = stepTracker.isSensorAvailable()
-        if (!sensorAvailable) {
+        stepTrackerScreenViewModel.checkSensorAvaiable()
+        if (!stepTrackerScreenViewModel.sensorAvailable.value) {
             Toast.makeText(
                 context,
                 "Step Counter Sensor not available on this device.",
@@ -76,35 +71,56 @@ fun StepTracker(navController: NavHostController) {
             ).show()
         }
 
+        //Andrea app permission
         // Request permission if sensor is available
-        if (sensorAvailable && ContextCompat.checkSelfPermission(
+        /*
+        if (stepTrackerScreenViewModel.sensorAvailable.value && ContextCompat.checkSelfPermission(
                 context,
                 Manifest.permission.ACTIVITY_RECOGNITION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            permissionGranted = true
-            stepTracker.startTracking()
-        } else if (sensorAvailable) {
+            stepTrackerScreenViewModel.setPermissionGranted(true)
+            stepTrackerScreenViewModel.startTracking()
+        } else if (stepTrackerScreenViewModel.sensorAvailable.value) {
             permissionLauncher.launch(Manifest.permission.ACTIVITY_RECOGNITION)
         }
+        */
+
+        // Mitchell Phone Testing for Android 9 software
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (ContextCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.ACTIVITY_RECOGNITION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                stepTrackerScreenViewModel.setPermissionGranted(true)
+                stepTrackerScreenViewModel.startTracking()
+            } else {
+                permissionLauncher.launch(Manifest.permission.ACTIVITY_RECOGNITION)
+            }
+        } else {
+            // For Android 9 and below, permission is granted automatically
+            stepTrackerScreenViewModel.setPermissionGranted(true)
+            stepTrackerScreenViewModel.startTracking()
+        }
+
+
     }
 
     DisposableEffect(Unit) {
         onDispose {
-            stepTracker.stopTracking()
+            stepTrackerScreenViewModel.stopTracking()
         }
     }
 
     // Periodically update steps and distance if permission is granted
-    if (permissionGranted) {
+    if (stepTrackerScreenViewModel.permissionGranted.value) {
         LaunchedEffect(Unit) {
             while (true) {
-                steps = stepTracker.getTotalSteps()
-                distance = stepTracker.getDistanceInMiles()
-                Log.d(
-                    "DashboardPage",
-                    "Steps updated: $steps, Distance updated: $distance miles"
-                ) //Testing purposes
+
+                Log.d("DashboardPage",
+                    "Steps updated: ${stepTrackerScreenViewModel.stepsState.value}, " +
+                            "Distance updated: ${stepTrackerScreenViewModel.distanceState.value} miles") //Testing purposes
                 kotlinx.coroutines.delay(1000L) // Update every second
             }
         }
@@ -126,6 +142,16 @@ fun StepTracker(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+
+        Text(
+            text = "Hello ${LoggedUser.loggedInUser?.firstName}",
+            style = TextStyle(
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            ),
+            modifier = Modifier.padding(bottom = 24.dp)
+        )
         // Circular Progress Bar with Step Count *********************************************
         Box(
             modifier = Modifier.size(250.dp),
@@ -134,7 +160,7 @@ fun StepTracker(navController: NavHostController) {
             Canvas(modifier = Modifier.fillMaxSize()) {
                 val strokeWidth = 20f
                 val startAngle = -90f
-                val sweepAngle = (steps % 10000) / 10000f * 360
+                val sweepAngle = (stepTrackerScreenViewModel.stepsState.value % 10000) / 10000f * 360
                 drawArc(
                     color = Color.Red,
                     startAngle = startAngle,
@@ -154,7 +180,7 @@ fun StepTracker(navController: NavHostController) {
             // Step Count Text ***********************************************************
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
-                    text = "$steps",
+                    text = "${stepTrackerScreenViewModel.stepsState.value}",
                     style = TextStyle(
                         fontSize = 48.sp,
                         fontWeight = FontWeight.Bold,
@@ -181,9 +207,9 @@ fun StepTracker(navController: NavHostController) {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            StatColumn(icon = R.drawable.coins_icon, value = "$coins", label = "Coins")
-            StatColumn(icon = R.drawable.dollar_sign_two, value = "$dollars", label = "Dollars")
-            StatColumn(icon = R.drawable.miles_icon, value = "$distance", label = "Miles")
+            StatColumn(icon = R.drawable.coins_icon, value = "${stepTrackerScreenViewModel.coinsState.value}", label = "Coins")
+            StatColumn(icon = R.drawable.dollar_sign_two, value = "${stepTrackerScreenViewModel.dollarsState.value}", label = "Dollars")
+            StatColumn(icon = R.drawable.miles_icon, value = "${stepTrackerScreenViewModel.distanceState.value}", label = "Miles")
         }
 
         Spacer(modifier = Modifier.height(42.dp))
@@ -197,8 +223,7 @@ fun StepTracker(navController: NavHostController) {
             // Convert Steps Button *********************************************
             Button(
                 onClick = {
-                    coins += steps / 10 // Convert steps to coins
-                    steps = 0 // Reset steps
+                    stepTrackerScreenViewModel.convertStepsToCoins()
                     Toast.makeText(context, "Steps converted to coins!", Toast.LENGTH_SHORT).show()
                 },
                 modifier = Modifier.padding(bottom = 16.dp)
@@ -208,8 +233,7 @@ fun StepTracker(navController: NavHostController) {
             // Convert Coins Button *********************************************
             Button(
                 onClick = {
-                    dollars += coins / 100.0 // Convert coins to dollars
-                    coins = 0 // Reset coins
+                    stepTrackerScreenViewModel.convertCoinsToDollars()
                     Toast.makeText(context, "Coins converted to dollars!", Toast.LENGTH_SHORT)
                         .show()
                 },
@@ -253,7 +277,7 @@ fun StatColumn(icon: Int, value: Any, label: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewDashboardPage() {
+fun PreviewStepTrackerScreen() {
     FitEarnTheme {
         StepTracker(navController = rememberNavController())
     }

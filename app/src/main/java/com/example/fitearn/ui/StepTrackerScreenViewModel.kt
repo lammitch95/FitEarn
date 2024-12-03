@@ -1,5 +1,6 @@
 package com.example.fitearn.ui
 
+import android.content.Context
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -10,51 +11,73 @@ import kotlinx.coroutines.launch
 
 class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewModel() {
 
-    companion object {
-        fun provideFactory(stepTracker: StepTracker): ViewModelProvider.Factory {
-            return object : ViewModelProvider.Factory {
-                @Suppress("UNCHECKED_CAST")
-                override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                    if (modelClass.isAssignableFrom(StepTrackerScreenViewModel::class.java)) {
-                        return StepTrackerScreenViewModel(stepTracker) as T
+        companion object {
+            // Provide Factory for the ViewModel
+            fun provideFactory(context: Context): ViewModelProvider.Factory {
+                return object : ViewModelProvider.Factory {
+                    @Suppress("UNCHECKED_CAST")
+                    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                        if (modelClass.isAssignableFrom(StepTrackerScreenViewModel::class.java)) {
+                            // Initialize StepTracker with the provided context
+                            val stepTracker = StepTracker(context)
+                            return StepTrackerScreenViewModel(stepTracker) as T
+                        }
+                        throw IllegalArgumentException("Unknown ViewModel class")
                     }
-                    throw IllegalArgumentException("Unknown ViewModel class")
                 }
             }
         }
-    }
 
-    var stepsState = mutableStateOf(0)
-        private set
-    var distanceState = mutableStateOf(0.0)
-        private set
-    var coinsState = mutableStateOf(0)
-        private set
-    var dollarsState = mutableStateOf(0.0)
-        private set
+        var permissionGranted = mutableStateOf(false)
+            private set
+        var sensorAvailable = mutableStateOf(true)
+            private set
+        var stepsState = mutableStateOf(0)
+            private set
+        var stepsCanConvert = mutableStateOf(0)
+            private set
+        var distanceState = mutableStateOf(0.0)
+            private set
+        var coinsState = mutableStateOf(0)
+            private set
+        var dollarsState = mutableStateOf(0.0)
+            private set
 
-    fun startTracking() {
-        stepTracker.startTracking()
-        viewModelScope.launch {
-            while (true) {
-                stepsState.value = stepTracker.getTotalSteps()
-                distanceState.value = stepTracker.getDistanceInMiles()
-                delay(1000L) // Update every second
+        fun startTracking() {
+            stepTracker.startTracking()
+            viewModelScope.launch {
+                while (true) {
+                    stepsState.value = stepTracker.getTotalSteps()
+                    distanceState.value = stepTracker.getDistanceInMiles()
+                    delay(1000L) // Update every second
+                }
             }
         }
-    }
 
-    fun stopTracking() {
-        stepTracker.stopTracking()
-    }
+        fun checkSensorAvaiable(){
+            sensorAvailable.value = stepTracker.isSensorAvailable()
+        }
 
-    fun convertStepsToCoins() {
-        coinsState.value += stepsState.value / 10
-        stepsState.value = 0 // Reset steps
-    }
 
-    fun convertCoinsToDollars() {
-        dollarsState.value += coinsState.value / 100.0
-        coinsState.value = 0 // Reset coins
-    }
+        fun setPermissionGranted(value: Boolean){
+            permissionGranted.value = value
+        }
+
+        fun setSensorAvailable(value: Boolean){
+            sensorAvailable.value = value
+        }
+
+        fun stopTracking() {
+            stepTracker.stopTracking()
+        }
+
+        fun convertStepsToCoins() {
+            coinsState.value += stepsState.value / 10
+            stepsState.value = 0 // Reset steps
+        }
+
+        fun convertCoinsToDollars() {
+            dollarsState.value += coinsState.value / 100.0
+            coinsState.value = 0 // Reset coins
+        }
 }
