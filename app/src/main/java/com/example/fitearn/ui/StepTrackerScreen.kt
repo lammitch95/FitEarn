@@ -12,6 +12,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -141,8 +142,30 @@ fun StepTracker(navController: NavHostController) {
             )
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Top
     ) {
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.Top,
+            horizontalArrangement = Arrangement.Start
+        ) {
+            IconButton(
+                onClick = { navController.navigate("userprofile") },
+                modifier = Modifier.size(60.dp)
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.person_button),
+                    contentDescription = "Home Icon",
+                    modifier = Modifier.size(46.dp),
+                    tint = Color.Unspecified
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
 
         Text(
             text = "Hello ${LoggedUser.loggedInUser?.firstName}",
