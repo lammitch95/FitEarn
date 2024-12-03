@@ -55,6 +55,7 @@ import com.example.fitearn.auth.fetchUserFromAuth
 import com.example.fitearn.ui.theme.FitEarnTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fitearn.data.database.AppDatabase
+import com.example.fitearn.utils.LoggedUser
 
 
 @Composable
@@ -185,7 +186,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Name: $firstName $lastName",
+                        value = "Name: ${LoggedUser.loggedInUser?.firstName} ${LoggedUser.loggedInUser?.lastName}",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -222,7 +223,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Mobile: $phoneNumber",
+                        value = "Mobile: ${LoggedUser.loggedInUser?.phoneNum}",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -259,7 +260,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Email: $email",
+                        value = "Email: ${LoggedUser.loggedInUser?.email}",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -296,7 +297,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Weight: $weight lb",
+                        value = "Weight: ${LoggedUser.loggedInUser?.weight} lb",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -334,7 +335,7 @@ fun UserProfile(navController: NavHostController) {
                         colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(Color.Black)
                     )
                     TextField(
-                        value = "D.O.B: $dateOfBirth",
+                        value = "D.O.B: ${LoggedUser.loggedInUser?.dateOfBirth}",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
