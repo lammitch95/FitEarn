@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fitearn.ui.DashboardScreenViewModel
 
 @Composable
@@ -117,5 +118,13 @@ fun MetricCard(title: String, value: String) {
             Text(text = value, fontSize = 16.sp, color = Color.White)
         }
     }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewDashboardScreen() {
+    val viewModel: DashboardScreenViewModel = viewModel()
+    DashboardScreen(navController = rememberNavController(), viewModel = viewModel)
 }
 

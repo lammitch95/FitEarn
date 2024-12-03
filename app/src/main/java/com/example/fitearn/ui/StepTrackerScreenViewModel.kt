@@ -97,6 +97,7 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewMod
 
             stepTracker.setCurentStepCount(0)
             stepTracker.setInitialStepCount(0)
+            stepTracker.setSensortInitial(null)
 
             if(LoggedUser.loggedInUser != null){
                 LoggedUser.loggedInUser!!.coinAmount = coinsState.value

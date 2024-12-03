@@ -80,6 +80,10 @@ class StepTracker(context: Context) : SensorEventListener {
     fun setInitialStepCount(value: Int){
         initialStepCount = value
     }
+
+    fun setSensortInitial(value: Int?){
+        sensorInitialValue = null
+    }
     // Get the distance in miles walked
     fun getDistanceInMiles(): Double {
         return distanceInMiles
