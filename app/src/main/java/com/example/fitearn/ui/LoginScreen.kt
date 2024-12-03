@@ -167,7 +167,11 @@ fun LoginPage(navController: NavHostController) {
         ) {
             Text(
                 text = "Forgot Password",
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier
+                    .padding(16.dp)
+                    .clickable {
+                        navController.navigate("forgot_password")
+                    },
                 color = Color(255, 152, 0, 255)
             )
         }

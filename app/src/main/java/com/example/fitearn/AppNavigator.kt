@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.ui.DashboardScreen
+import com.example.fitearn.ui.ForgotPasswordScreen
 import com.example.fitearn.ui.StepTracker
 import com.example.fitearn.ui.LoginPage
 import com.example.fitearn.ui.RegistrationPage
@@ -26,6 +27,8 @@ fun AppNavigator() {
         composable("userinfo") { UserInfoScreen(navController) }
         composable("userprofile") { UserProfile(navController) }
         composable("steptracker") { StepTracker(navController) }
+        composable("forgot_password") { ForgotPasswordScreen(navController) }
+
     }
 }
 
