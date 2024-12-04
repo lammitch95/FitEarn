@@ -1,16 +1,18 @@
 package com.example.fitearn.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.utils.LoggedUser
 import com.example.fitearn.utils.StepTracker
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewModel() {
+class StepTrackerScreenViewModel(private val stepTracker: StepTracker, private val appDatabase: AppDatabase) : ViewModel() {
 
         companion object {
             // Provide Factory for the ViewModel
@@ -21,7 +23,8 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewMod
                         if (modelClass.isAssignableFrom(StepTrackerScreenViewModel::class.java)) {
                             // Initialize StepTracker with the provided context
                             val stepTracker = StepTracker(context)
-                            return StepTrackerScreenViewModel(stepTracker) as T
+                            val appDatabase = AppDatabase.getDatabase(context)
+                            return StepTrackerScreenViewModel(stepTracker, appDatabase) as T
                         }
                         throw IllegalArgumentException("Unknown ViewModel class")
                     }
@@ -103,9 +106,10 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewMod
                 LoggedUser.loggedInUser!!.coinAmount = coinsState.value
                 LoggedUser.loggedInUser!!.stepsCount = stepsState.value
             }
-
+            saveToDatabase()
         }
 
+        @SuppressLint("DefaultLocale")
         fun convertCoinsToDollars() {
             dollarsState.value += coinsState.value / 100.0
             if(LoggedUser.loggedInUser != null){
@@ -113,5 +117,13 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker) : ViewMod
             }
             dollarsState.value = String.format("%.2f", dollarsState.value).toDouble()
             coinsState.value = 0 // Reset coins
+            saveToDatabase()
+        }
+
+        fun saveToDatabase(){
+            viewModelScope.launch {
+                val userDao = appDatabase.userDao()
+                LoggedUser.loggedInUser?.let { userDao.updateUser(it) }
+            }
         }
 }
