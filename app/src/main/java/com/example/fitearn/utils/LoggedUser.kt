@@ -1,6 +1,9 @@
 package com.example.fitearn.utils
 
+import androidx.lifecycle.lifecycleScope
+import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.model.User
+import kotlinx.coroutines.launch
 
 object LoggedUser {
     var loggedInUser: User? = null
@@ -27,6 +30,8 @@ object LoggedUser {
 
         return false
     }
+
+
 
 
 }

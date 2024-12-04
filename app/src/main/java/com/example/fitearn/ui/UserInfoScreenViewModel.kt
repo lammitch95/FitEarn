@@ -95,9 +95,11 @@ class UserInfoScreenViewModel(private val appDatabase: AppDatabase): ViewModel()
         )
 
         if(sucessUpdate){
+            viewModelScope.launch {
+                val userDao = appDatabase.userDao()
+                LoggedUser.loggedInUser?.let { userDao.updateUser(it) }
+            }
             onSaveSuccess()
-        }else{
-
         }
 
     }
