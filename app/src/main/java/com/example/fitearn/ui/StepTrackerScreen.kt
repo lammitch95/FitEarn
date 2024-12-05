@@ -269,6 +269,13 @@ fun StepTracker(navController: NavHostController) {
                 Text(text = "Convert Coins")
             }
 
+            Button(//Delete this later, testing button to navigate to shop
+                onClick = {navController.navigate("shop")},
+                modifier = Modifier.padding(bottom = 16.dp)
+            ){
+                Text(text="Testing Shop Button")
+            }
+
         }
     }
 }
