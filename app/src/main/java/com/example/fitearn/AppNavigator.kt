@@ -11,6 +11,7 @@ import com.example.fitearn.ui.ForgotPasswordScreen
 import com.example.fitearn.ui.StepTracker
 import com.example.fitearn.ui.LoginPage
 import com.example.fitearn.ui.RegistrationPage
+import com.example.fitearn.ui.ShopScreen
 import com.example.fitearn.ui.SplashScreen
 import com.example.fitearn.ui.UserInfoScreen
 import com.example.fitearn.ui.UserProfile
@@ -28,6 +29,7 @@ fun AppNavigator() {
         composable("userprofile") { UserProfile(navController) }
         composable("steptracker") { StepTracker(navController) }
         composable("forgot_password") { ForgotPasswordScreen(navController) }
+        composable("shop"){ ShopScreen(navController)}
 
     }
 }

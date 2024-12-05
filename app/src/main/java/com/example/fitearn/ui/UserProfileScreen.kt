@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.fitearn.R
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -104,19 +105,19 @@ fun UserProfile(navController: NavHostController) {
                     )
                 )
             )
-            .verticalScroll(rememberScrollState())
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 20.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.Top
         ) {
             IconButton(
                 onClick = { navController.navigate("dashboard") },
                 modifier = Modifier.size(60.dp)
-                    .align(Alignment.Top)
-                    .padding(top = 10.dp)
                     .padding(start = 4.dp)
             ) {
                 Icon(
