@@ -313,7 +313,7 @@ fun StepTracker(navController: NavHostController) {
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.leaderboard_icon),
-                        contentDescription = "Settings Icon",
+                        contentDescription = "Leaderboard Icon",
                         tint = Color.White,
                         modifier = Modifier.size(24.dp)
                     )
