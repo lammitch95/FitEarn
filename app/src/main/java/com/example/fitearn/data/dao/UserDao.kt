@@ -21,4 +21,8 @@ interface UserDao {
     @Update
     suspend fun updateUser(user: User)
 
+    @Query("SELECT * FROM users ORDER BY coinAmount DESC")
+    suspend fun getAllUsers(): List<User>
+
+
 }
