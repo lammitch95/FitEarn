@@ -190,7 +190,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                     TextField(
                         value = "Name: $firstName $lastName",
-                        onValueChange = { /* Handle text change */ },
+                        onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
@@ -227,7 +227,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                     TextField(
                         value = "Mobile: $phoneNumber",
-                        onValueChange = { /* Handle text change */ },
+                        onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
@@ -264,7 +264,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                     TextField(
                         value = "Email: $email",
-                        onValueChange = { /* Handle text change */ },
+                        onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
@@ -301,7 +301,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                     TextField(
                         value = "Weight: $weight lb",
-                        onValueChange = { /* Handle text change */ },
+                        onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
@@ -339,7 +339,7 @@ fun UserProfile(navController: NavHostController) {
                     )
                     TextField(
                         value = "D.O.B: $dateOfBirth",
-                        onValueChange = { /* Handle text change */ },
+                        onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
                             .width(340.dp)
