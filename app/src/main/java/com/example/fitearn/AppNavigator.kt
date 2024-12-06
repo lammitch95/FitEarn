@@ -30,7 +30,7 @@ fun AppNavigator() {
         composable("steptracker") { StepTracker(navController) }
         composable("forgot_password") { ForgotPasswordScreen(navController) }
         composable("shop"){ ShopScreen(navController)}
-        composable("leaderboard"){ LeaderboardScreen(navController) }
+        //composable("leaderboard"){ LeaderboardScreen(navController) }
 
     }
 }
