@@ -240,7 +240,7 @@ fun UserInfoScreen(navController: NavController) {
                         Toast.makeText(context,"All fields are filled correctly. Proceeding...", Toast.LENGTH_SHORT).show()
 
                         // Navigate to the user profile screen after successful registration
-                        navController.navigate("steptracker")
+                        navController.navigate("dashboard")
                     }
 
                 } else {
