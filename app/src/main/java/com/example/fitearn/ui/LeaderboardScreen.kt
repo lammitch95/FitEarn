@@ -18,11 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.Image
-import androidx.compose.ui.layout.ContentScale
 import androidx.navigation.NavHostController
 import com.example.fitearn.R
 import com.example.fitearn.data.database.AppDatabase
@@ -32,7 +28,7 @@ import com.example.fitearn.data.database.AppDatabase
 
 @Composable
 fun LeaderboardScreen(
-    navController: NavController,
+    navController: NavHostController,
     appDatabase: AppDatabase
 ) {
     // Obtain the ViewModel with the custom factory
@@ -85,6 +81,9 @@ fun LeaderboardScreen(
                 }
             )
         }
+        Spacer(modifier = Modifier.weight(1f))
+
+        BottomNavigationBar(navController = navController)
     }
 }
 
@@ -105,7 +104,7 @@ fun LeaderboardItem(
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Medal Icon or Rank Number
+
         if (medalIcon != null) {
             Icon(
                 painter = painterResource(id = medalIcon),
@@ -123,7 +122,7 @@ fun LeaderboardItem(
             )
         }
 
-        // Profile Placeholder or Profile Image
+
         Box(
             modifier = Modifier
                 .size(40.dp)
@@ -132,7 +131,7 @@ fun LeaderboardItem(
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = username.first().toString(), // Placeholder Initial
+                text = username.first().toString(),
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
                 color = Color.White
@@ -152,7 +151,7 @@ fun LeaderboardItem(
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        // Coins
+
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 painter = painterResource(id = R.drawable.coins_icon), // Replace with coin icon resource

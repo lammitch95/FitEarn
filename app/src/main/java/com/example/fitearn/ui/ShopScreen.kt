@@ -143,7 +143,7 @@ fun ShopScreen(navController: NavController){
                 }
             }
 
-            
+
 
         }
 
@@ -189,7 +189,7 @@ fun ShopScreen(navController: NavController){
                     )
 
                 )
-                
+
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
