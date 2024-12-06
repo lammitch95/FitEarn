@@ -37,6 +37,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -55,6 +56,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.auth.fetchUserFromAuth
+import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.ui.theme.FitEarnTheme
 import com.example.fitearn.model.ShopItemsRepository
 import com.example.fitearn.utils.LoggedUser
@@ -62,38 +64,53 @@ import com.example.fitearn.utils.LoggedUser
 
 @Composable
 fun UserProfile(navController: NavHostController) {
+    // Access the logged-in user
+    val user = LoggedUser.loggedInUser
 
-    var firstName by remember { mutableStateOf("") }
-    var lastName by remember { mutableStateOf("") }
-    var phoneNumber by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var weight by remember { mutableStateOf("") }
-    var dateOfBirth by remember { mutableStateOf("") }
-
-    val context = LocalContext.current
-
-    /*
-    val appDatabase = remember { AppDatabase.getDatabase(context) }
-    val UserProfileScreenViewModel: UserProfileScreenViewModel = viewModel(
-        factory = UserProfileScreenViewModel.provideFactory(appDatabase)
-    )*/
-
-    // Fetch user data
-    LaunchedEffect(Unit) {
-        fetchUserFromAuth(
-            onSuccess = { user ->
-                firstName = user.firstName
-                lastName = user.lastName
-                phoneNumber = user.phoneNumber
-                email = user.email
-                weight = user.weight
-                dateOfBirth = user.dateOfBirth
-            },
-            onError = { e ->
-                Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_LONG).show()
-            }
-        )
+    // Error handling if the user is null
+    if (user == null) {
+        Text("User not logged in", color = Color.Red, modifier = Modifier.padding(16.dp))
+        return
     }
+
+//        val viewModel: UserProfileScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
+//            factory = UserProfileScreenViewModel.provideFactory(appDatabase)
+//        )
+//
+//        val UserData by viewModel.UserData.collectAsState()
+//
+//    var firstName by remember { mutableStateOf("") }
+//    var lastName by remember { mutableStateOf("") }
+//    var phoneNumber by remember { mutableStateOf("") }
+//    var email by remember { mutableStateOf("") }
+//    var weight by remember { mutableStateOf("") }
+//    var dateOfBirth by remember { mutableStateOf("") }
+//
+//    val context = LocalContext.current
+//
+//
+//    /*
+//    val appDatabase = remember { AppDatabase.getDatabase(context) }
+//    val UserProfileScreenViewModel: UserProfileScreenViewModel = viewModel(
+//        factory = UserProfileScreenViewModel.provideFactory(appDatabase)
+//    )*/
+//
+//    // Fetch user data
+//    LaunchedEffect(Unit) {
+//        fetchUserFromAuth(
+//            onSuccess = { user ->
+//                firstName = user.firstName
+//                lastName = user.lastName
+//                phoneNumber = user.phoneNumber
+//                email = user.email
+//                weight = user.weight
+//                dateOfBirth = user.dateOfBirth
+//            },
+//            onError = { e ->
+//                Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+//            }
+//        )
+//    }
 
     Column(
         modifier = Modifier
@@ -189,7 +206,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Name: $firstName $lastName",
+                        value = "Name: ${user.firstName} ${user.lastName}",
                         onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
@@ -226,7 +243,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Mobile: $phoneNumber",
+                        value = "Mobile: ${user.phoneNum ?: "Not provided"}",
                         onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
@@ -263,7 +280,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Email: $email",
+                        value =  "Email: ${user.email}",
                         onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
@@ -300,7 +317,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Weight: $weight lb",
+                        value = "Weight: ${user.weight ?: "Not provided"}",
                         onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
@@ -338,7 +355,7 @@ fun UserProfile(navController: NavHostController) {
                         colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(Color.Black)
                     )
                     TextField(
-                        value = "D.O.B: $dateOfBirth",
+                        value = "D.O.B: ${user.dateOfBirth ?: "Not provided"}",
                         onValueChange = {  },
                         readOnly = true,
                         modifier = Modifier
@@ -448,12 +465,12 @@ fun UserImagePicker(modifier: Modifier = Modifier, defaultImage: Int) {
     }
 }
 
-
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewUserProfilePage() {
-    FitEarnTheme {
-        UserProfile(navController = rememberNavController())
-    }
-}
+//
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun PreviewUserProfilePage() {
+//    FitEarnTheme {
+//        UserProfile(navController = rememberNavController())
+//    }
+//}
