@@ -308,7 +308,7 @@ fun StepTracker(navController: NavHostController) {
                 Spacer(modifier = Modifier.width(16.dp))
 
                 IconButton(
-                    onClick = { navController.navigate("") }, //Goes to leaderboard
+                    onClick = { navController.navigate("leaderboard") }, //Goes to leaderboard
                     modifier = Modifier.size(48.dp)
                 ) {
                     Icon(

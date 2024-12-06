@@ -15,10 +15,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(this)
+        val appDatabase = AppDatabase.getDatabase(this)
         setContent {
             FitEarnTheme {
                 // Navigate to your main entry page
-                AppNavigator()
+                AppNavigator(appDatabase = appDatabase)
             }
         }
 
