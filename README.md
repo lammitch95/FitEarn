@@ -1,9 +1,9 @@
 # FitEarn
 
 ## Overview
-FitEarn is an innovative mobile application designed to inspire and reward physical activity. FitEarn tracks users' steps and distance traveled, 
-converting their physical effort into a unique currency. This currency can be used to customize avatars, redeem rewards, 
-or contribute to charitable causes, creating a dual benefit of personal health and positive social impact.
+FitEarn is an innovative mobile application designed to inspire and reward physical activity. FitEarn tracks users steps and distance traveled, 
+converting their physical effort into a unique currency. This currency can be used to purchase avatars, redeem rewards, 
+or contribute to charitable causes creating a dual benefit of personal health and positive social impact.
 
 ## Problem and Community Benefit
 
