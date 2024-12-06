@@ -55,7 +55,7 @@ android {
 
 dependencies {
 
-
+    implementation(libs.gson)
     implementation(libs.androidx.room.ktx)
 
     // Define App Center SDK Version
@@ -69,7 +69,7 @@ dependencies {
     implementation(libs.appcenter.crashes)
 
     // Coil for image loading
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(libs.coil.compose)
 
 
     // Firebase BoM for consistent versions of Firebase libraries

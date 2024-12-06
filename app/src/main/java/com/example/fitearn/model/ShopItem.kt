@@ -15,22 +15,22 @@ object ShopItemsRepository {
     val redeemItems = listOf(
         ShopItem(
             id = 1,
-            name = "Bear",
-            cost = 25,
+            name = "$1 Giftcard",
+            cost = 1,
             imageResId = R.drawable.amazon,
             itemType = "Redeem"
         ),
         ShopItem(
             id = 2,
-            name = "Astronaut",
-            cost = 50,
+            name = "$5 Giftcard",
+            cost = 5,
             imageResId = R.drawable.amazon,
             itemType = "Redeem"
         ),
         ShopItem(
             id = 3,
-            name = "Duck",
-            cost = 100,
+            name = "$10 Giftcard",
+            cost = 10,
             imageResId = R.drawable.amazon,
             itemType = "Redeem"
         )
@@ -40,35 +40,35 @@ object ShopItemsRepository {
         ShopItem(
             id = 1,
             name = "Bear",
-            cost = 5000,
+            cost = 100,
             imageResId = R.drawable.bear,
             itemType = "Avatar"
         ),
         ShopItem(
             id = 2,
             name = "Astronaut",
-            cost = 10000,
+            cost = 250,
             imageResId = R.drawable.astronaut,
             itemType = "Avatar"
         ),
         ShopItem(
             id = 3,
             name = "Duck",
-            cost = 1000,
+            cost = 5,
             imageResId = R.drawable.chicken,
             itemType = "Avatar"
         ),
         ShopItem(
             id = 4,
             name = "Dog",
-            cost = 2500,
+            cost = 25,
             imageResId = R.drawable.dog,
             itemType = "Avatar"
         ),
         ShopItem(
             id = 5,
             name = "Rabbit",
-            cost = 250,
+            cost = 10,
             imageResId = R.drawable.rabbit,
             itemType = "Avatar"
         ),

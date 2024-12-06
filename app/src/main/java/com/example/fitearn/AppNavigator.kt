@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.fitearn.ui.AvatarCollectionScreen
 import com.example.fitearn.ui.DashboardScreen
 import com.example.fitearn.ui.ForgotPasswordScreen
 import com.example.fitearn.ui.StepTracker
@@ -30,6 +31,7 @@ fun AppNavigator() {
         composable("steptracker") { StepTracker(navController) }
         composable("forgot_password") { ForgotPasswordScreen(navController) }
         composable("shop"){ ShopScreen(navController)}
+        composable("avatarCollection") { AvatarCollectionScreen(navController) }
 
     }
 }

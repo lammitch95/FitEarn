@@ -48,17 +48,15 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker, private v
             private set
 
         init {
-
-
             if(LoggedUser.loggedInUser != null){
                 val initalStepCount = LoggedUser.loggedInUser!!.stepsCount ?: 0
                 stepsState.value = initalStepCount
                 stepTracker.setInitialStepCount(initalStepCount)
                 coinsState.value = LoggedUser.loggedInUser!!.coinAmount
                 dollarsState.value = LoggedUser.loggedInUser!!.dollarAmount
-
             }
         }
+
         fun startTracking() {
             stepTracker.startTracking()
             viewModelScope.launch {
@@ -86,9 +84,6 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker, private v
             permissionGranted.value = value
         }
 
-        fun setSensorAvailable(value: Boolean){
-            sensorAvailable.value = value
-        }
 
         fun stopTracking() {
             stepTracker.stopTracking()
@@ -120,7 +115,7 @@ class StepTrackerScreenViewModel(private val stepTracker: StepTracker, private v
             saveToDatabase()
         }
 
-        fun saveToDatabase(){
+        private fun saveToDatabase(){
             viewModelScope.launch {
                 val userDao = appDatabase.userDao()
                 LoggedUser.loggedInUser?.let { userDao.updateUser(it) }

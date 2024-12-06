@@ -1,6 +1,9 @@
 package com.example.fitearn.ui
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +17,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
@@ -21,6 +25,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -30,14 +35,25 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.R
+import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.model.ShopItem
 import com.example.fitearn.model.ShopItemsRepository
+import com.example.fitearn.utils.LoggedUser
 
 @Composable
 fun ShopScreen(navController: NavController){
+
+    val context = LocalContext.current
+    val appDatabase = remember { AppDatabase.getDatabase(context) }
+    val shopViewModel: ShopScreenViewModel = viewModel(
+        factory = ShopScreenViewModel.provideFactory(appDatabase)
+    )
+
 
     Column(
         modifier = Modifier
@@ -95,7 +111,7 @@ fun ShopScreen(navController: NavController){
                     Spacer(modifier = Modifier.size(7.dp))
 
                     Text(
-                        "100.00k",
+                        LoggedUser.formatCoins(shopViewModel.trackCoinAmount.value),
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 22.sp
@@ -119,7 +135,7 @@ fun ShopScreen(navController: NavController){
                     Spacer(modifier = Modifier.size(5.dp))
 
                     Text(
-                        "100.00k",
+                        LoggedUser.formatCurrency(shopViewModel.trackDollarAmount.value),
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 22.sp
@@ -181,7 +197,7 @@ fun ShopScreen(navController: NavController){
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Top
                 ){
-                    AvatarItem()
+                    AvatarItem(shopViewModel, context)
                 }
 
                 Spacer(modifier = Modifier.padding(vertical = 5.dp))
@@ -222,7 +238,7 @@ fun ShopScreen(navController: NavController){
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Top
                 ){
-                    RedeemItem()
+                    RedeemItem(shopViewModel, context)
                 }
 
 
@@ -235,7 +251,7 @@ fun ShopScreen(navController: NavController){
 
 
 @Composable
-fun AvatarItem(){
+fun AvatarItem(shopViewModel: ShopScreenViewModel, context: Context){
 
     val items = ShopItemsRepository.avatarItems
     val maxRows = 2
@@ -258,7 +274,7 @@ fun AvatarItem(){
                     val itemIndex = rowIndex * maxColumns + colIndex
                     if (itemIndex < items.size) {
 
-                        ItemTemplate(item = items[itemIndex])
+                        ItemTemplate(item = items[itemIndex], shopViewModel, context)
                     } else {
                         Spacer(modifier = Modifier.size(100.dp, 125.dp))
                     }
@@ -270,7 +286,7 @@ fun AvatarItem(){
 }
 
 @Composable
-fun RedeemItem(){
+fun RedeemItem(shopViewModel: ShopScreenViewModel, context: Context){
 
     val items = ShopItemsRepository.redeemItems
     val maxRows = 2
@@ -293,7 +309,7 @@ fun RedeemItem(){
                     val itemIndex = rowIndex * maxColumns + colIndex
                     if (itemIndex < items.size) {
 
-                        ItemTemplate(item = items[itemIndex])
+                        ItemTemplate(item = items[itemIndex], shopViewModel, context)
                     } else {
                         Spacer(modifier = Modifier.size(100.dp, 125.dp))
                     }
@@ -304,9 +320,14 @@ fun RedeemItem(){
 }
 
 @Composable
-fun ItemTemplate(item: ShopItem){
+fun ItemTemplate(item: ShopItem, shopViewModel: ShopScreenViewModel, context: Context){
     Column(
         modifier = Modifier
+            .clickable{
+                shopViewModel.onPurchase(item) { purchaseMessage ->
+                    Toast.makeText(context, purchaseMessage, Toast.LENGTH_SHORT).show()
+                }
+            }
             .padding(4.dp)
             .size(100.dp,125.dp)
             .background(
@@ -334,7 +355,7 @@ fun ItemTemplate(item: ShopItem){
 
         Column(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .weight(2f)
                 .background(
                     Brush.verticalGradient(
@@ -364,7 +385,7 @@ fun ItemTemplate(item: ShopItem){
             Row(
                 modifier = Modifier
                     .fillMaxSize()
-                    .weight(2f),
+                    .weight(1f),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ){
