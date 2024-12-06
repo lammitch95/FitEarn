@@ -16,6 +16,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.R
 import kotlinx.coroutines.delay
+import com.example.fitearn.ui.theme.kerobeni
 
 @Composable
 fun SplashScreen(navController: NavController) {
@@ -28,15 +29,15 @@ fun SplashScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black),
+            .background(kerobeni),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Image(
-            painter = painterResource(id = R.drawable.fitearnlogo),
+            painter = painterResource(id = R.drawable.fitearn_logo2),
             contentDescription = "FitEarn Logo",
             contentScale = ContentScale.Fit,
-            modifier = Modifier.size(400.dp)
+            modifier = Modifier.size(200.dp)
         )
         Spacer(modifier = Modifier.height(16.dp))
     }

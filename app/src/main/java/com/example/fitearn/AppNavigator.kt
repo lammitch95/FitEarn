@@ -36,7 +36,7 @@ fun AppNavigator(appDatabase: AppDatabase) {
         composable("shop"){ ShopScreen(navController)}
         composable("avatarCollection") { AvatarCollectionScreen(navController) }
         composable("leaderboard") {
-            LeaderboardScreen(navController = navController, appDatabase = appDatabase) // Pass appDatabase here
+            LeaderboardScreen(navController = navController, appDatabase = appDatabase)
         }
     }
 }
