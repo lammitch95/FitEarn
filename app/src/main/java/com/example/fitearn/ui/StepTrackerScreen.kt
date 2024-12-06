@@ -147,25 +147,6 @@ fun StepTracker(navController: NavHostController) {
         verticalArrangement = Arrangement.Top
     ) {
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.Top,
-            horizontalArrangement = Arrangement.Start
-        ) {
-            IconButton(
-                onClick = { navController.navigate("userprofile") },
-                modifier = Modifier.size(60.dp)
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.person_button),
-                    contentDescription = "Home Icon",
-                    modifier = Modifier.size(46.dp),
-                    tint = Color.Unspecified
-                )
-            }
-        }
-
         Spacer(modifier = Modifier.height(24.dp))
 
 
@@ -323,6 +304,21 @@ fun StepTracker(navController: NavHostController) {
                         modifier = Modifier.size(24.dp)
                     )
                 }
+
+                Spacer(modifier = Modifier.width(16.dp))
+
+                IconButton(
+                    onClick = { navController.navigate("") }, //Goes to leaderboard
+                    modifier = Modifier.size(48.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.leaderboard_icon),
+                        contentDescription = "Leaderboard Icon",
+                        tint = Color.White,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+
             }
 
         }
@@ -338,7 +334,9 @@ fun StatColumn(icon: Int, value: Any, label: String) {
             modifier = Modifier.size(40.dp),
             tint = Color.White
         )
+
         Spacer(modifier = Modifier.height(4.dp))
+
         Text(
             text = value.toString(),
             style = TextStyle(
