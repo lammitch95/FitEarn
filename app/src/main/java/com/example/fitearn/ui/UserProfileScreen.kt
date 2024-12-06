@@ -56,8 +56,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.auth.fetchUserFromAuth
 import com.example.fitearn.ui.theme.FitEarnTheme
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.fitearn.data.database.AppDatabase
 import com.example.fitearn.model.ShopItemsRepository
 import com.example.fitearn.utils.LoggedUser
 
