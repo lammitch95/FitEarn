@@ -4,6 +4,7 @@ coilCompose = "2.4.0"
 composeGradlePlugin = "1.5.0"
 firebaseBomVersion = "33.5.1"   # Use the latest Firebase BOM version
 googleServices = "4.4.2"
+hiltAndroid = "2.44"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -23,6 +24,7 @@ appCenterSdkVersion = "5.0.4"
 roomCommonJvm = "2.7.0-alpha11"
 roomKtx = "2.6.1"
 roomCompiler = "2.6.1"
+firebaseFirestoreKtx = "25.1.1"
 
 
 
@@ -37,6 +39,8 @@ google-firebase-analytics = { module = "com.google.firebase:firebase-analytics",
 #noinspection SimilarGradleDependency
 google-firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuth" }
 google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -65,9 +69,11 @@ appcenter-crashes = { group = "com.microsoft.appcenter", name = "appcenter-crash
 androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }

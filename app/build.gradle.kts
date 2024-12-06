@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.services)
     id("kotlin-kapt")
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 
@@ -55,6 +56,8 @@ android {
 
 dependencies {
 
+    implementation(libs.firebase.firestore.ktx)
+    kapt(libs.hilt.compiler)
 
     implementation(libs.androidx.room.ktx)
 
@@ -62,6 +65,7 @@ dependencies {
     val appCenterSdkVersion = "5.0.4"
 
     implementation(libs.coil.compose)
+    implementation(libs.hilt.android)
 
 
     // App Center Dependencies
