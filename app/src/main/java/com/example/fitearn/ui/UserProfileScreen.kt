@@ -465,12 +465,12 @@ fun UserImagePicker(modifier: Modifier = Modifier, defaultImage: Int) {
     }
 }
 
-//
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun PreviewUserProfilePage() {
-//    FitEarnTheme {
-//        UserProfile(navController = rememberNavController())
-//    }
-//}
+
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewUserProfilePage() {
+    FitEarnTheme {
+        UserProfile(navController = rememberNavController())
+    }
+}

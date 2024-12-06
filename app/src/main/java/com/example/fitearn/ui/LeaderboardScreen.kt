@@ -31,7 +31,6 @@ fun LeaderboardScreen(
     navController: NavHostController,
     appDatabase: AppDatabase
 ) {
-    // Obtain the ViewModel with the custom factory
     val viewModel: LeaderboardScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
         factory = LeaderboardScreenViewModel.provideFactory(appDatabase)
     )
@@ -154,7 +153,7 @@ fun LeaderboardItem(
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(id = R.drawable.coins_icon), // Replace with coin icon resource
+                painter = painterResource(id = R.drawable.coins_icon),
                 contentDescription = "Coin Icon",
                 tint = Color.Yellow,
                 modifier = Modifier.size(20.dp)
