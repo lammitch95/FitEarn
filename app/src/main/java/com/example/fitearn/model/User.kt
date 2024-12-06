@@ -2,6 +2,7 @@ package com.example.fitearn.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.fitearn.R
 
 @Entity(tableName = "users")
 data class User(
@@ -18,5 +19,15 @@ data class User(
     var dollarAmount: Double = 0.0,
     var stepsCount: Int = 0,
     val distance: Double = 0.0,
-    var hasUserInfo: Boolean = false
+    var hasUserInfo: Boolean = false,
+    var equippedAvatar: String? = "Default",
+    var ownAvatars: List<ShopItem> = listOf(
+        ShopItem(
+            id = 0,
+            name = "Default",
+            cost = -1,
+            imageResId = R.drawable.user_pfp_account,
+            itemType = "Avatar"
+        )
+    )
 )

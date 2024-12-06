@@ -29,6 +29,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -50,12 +51,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fitearn.auth.fetchUserFromAuth
 import com.example.fitearn.ui.theme.FitEarnTheme
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.fitearn.data.database.AppDatabase
+import com.example.fitearn.model.ShopItemsRepository
 import com.example.fitearn.utils.LoggedUser
 
 
@@ -130,9 +131,10 @@ fun UserProfile(navController: NavHostController) {
 
             Spacer(modifier = Modifier.weight(0.2f))
 
-            UserImagePicker(
+            UserAvatarSelect(
                 modifier = Modifier.size(250.dp),
-                defaultImage = R.drawable.user_pfp_account
+                defaultImage = R.drawable.user_pfp_account,
+                navController
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -187,7 +189,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Name: ${LoggedUser.loggedInUser?.firstName} ${LoggedUser.loggedInUser?.lastName}",
+                        value = "Name: $firstName $lastName",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -224,7 +226,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Mobile: ${LoggedUser.loggedInUser?.phoneNum}",
+                        value = "Mobile: $phoneNumber",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -261,7 +263,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Email: ${LoggedUser.loggedInUser?.email}",
+                        value = "Email: $email",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -298,7 +300,7 @@ fun UserProfile(navController: NavHostController) {
                             .padding(start = 4.dp)
                     )
                     TextField(
-                        value = "Weight: ${LoggedUser.loggedInUser?.weight} lb",
+                        value = "Weight: $weight lb",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -336,7 +338,7 @@ fun UserProfile(navController: NavHostController) {
                         colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(Color.Black)
                     )
                     TextField(
-                        value = "D.O.B: ${LoggedUser.loggedInUser?.dateOfBirth}",
+                        value = "D.O.B: $dateOfBirth",
                         onValueChange = { /* Handle text change */ },
                         readOnly = true,
                         modifier = Modifier
@@ -364,12 +366,50 @@ fun UserProfile(navController: NavHostController) {
                         .align(Alignment.CenterHorizontally)
                         .padding(top = 40.dp)
                         .width(200.dp)
-                        .height(55.dp)
+                        .height(55.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.White,
+                    )
                 ) {
-                    Text(text = "Sign Out")
+                    Text(
+                        text = "Sign Out",
+                        color = Color(0, 76, 249),
+                        fontSize = 25.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
         }
+    }
+}
+
+@Composable
+fun UserAvatarSelect(modifier: Modifier = Modifier, defaultImage: Int, navController: NavHostController){
+
+    val avatarItems = ShopItemsRepository.avatarItems
+    val userEquippedAvatar = LoggedUser.loggedInUser?.equippedAvatar
+    var chosenImage = defaultImage
+    for (item in avatarItems) {
+        if (item.name == userEquippedAvatar) {
+            chosenImage = item.imageResId
+            break
+        }
+    }
+
+    Box(
+        modifier = modifier
+            .size(150.dp)
+            .padding(8.dp)
+            .clip(CircleShape)
+            .clickable { navController.navigate("avatarCollection") },
+        contentAlignment = Alignment.Center
+    ){
+        Image(
+            painter = painterResource(id = chosenImage),
+            contentDescription = "Default Profile Image",
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
     }
 }
 

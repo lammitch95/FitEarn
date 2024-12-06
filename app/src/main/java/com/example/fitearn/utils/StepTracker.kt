@@ -38,6 +38,9 @@ class StepTracker(context: Context) : SensorEventListener {
         if (stepCounterSensor != null) {
             sensorManager.unregisterListener(this, stepCounterSensor)
         }
+        if(LoggedUser.loggedInUser != null){
+            LoggedUser.loggedInUser!!.stepsCount = currentStepCount
+        }
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
