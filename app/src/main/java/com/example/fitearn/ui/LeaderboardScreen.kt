@@ -51,7 +51,7 @@ fun LeaderboardScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        // Leaderboard Header
+        // Header for the leaderboard
         Text(
             text = "Leaderboard",
             color = Color.White,
@@ -60,7 +60,7 @@ fun LeaderboardScreen(
             modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        // Leaderboard Items
+        // this is the items for leaderboard items
         leaderboardData.value.forEachIndexed { index, user ->
             LeaderboardItem(
                 rank = index + 1,
