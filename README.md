@@ -32,7 +32,7 @@ FitEarn encourages physical activity by:
 * Framework/IDE: Android Studio
 * Backend Services: Google Firebase Authentication
 * Database: Room (local database for offline access and performance optimization)
-* Sensors: Android Sensor Manager (for step and distance tracking)
+* Sensors: Android Sensor API (for step and distance tracking)
 
 ## Installation:
 * Clone the Repository.
